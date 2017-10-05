@@ -1,0 +1,25 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "cors test",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "engines": {
+    "node": ">=8.1.0"
+  },
+  "scripts": {
+    "build": "webpack --watch",
+    "start": "nodemon app.js",
+    "start:debug": "DEBUG=* node app.js"
+  },
+  "dependencies": {
+    "express": "^4.15.3",
+    "node-fetch": "^1.7.3",
+    "webpack": "^3.4.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
