@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-// const http = require('http').Server(app)
+// const http = requestuire('http').Server(app)
 const path = require('path')
 const fetch = require('node-fetch')
 const PORT = 8000
@@ -8,17 +8,20 @@ const render = require('./public/javascripts/renderData.js');
 
 app.use(express.static('public'))
 
-app.get('/', (req, res) => {
+app.get('/', (request, res) => {
   res.sendFile(path.join(__dirname, './public/index.html'))
 })
 
-app.get('/fighters', (req, res) => {
+// create route
+app.get('/fighters', (request, response) => {
+  // make api call using fetch
   fetch('http://ufc-data-api.ufc.com//api/v1/us/fighters')
   .then((response) => {
       return response.text();
   }).then((body) => {
       let results = JSON.parse(body)
-      res.send(results)
+      console.log(results) // server log
+      response.send(results) // sends to frontend
     });
 });
 
