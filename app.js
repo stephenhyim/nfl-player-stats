@@ -18,8 +18,7 @@ app.get('/fighters', (req, res) => {
       return response.text();
   }).then((body) => {
       let results = JSON.parse(body)
-      res.json(results)
-      return render(results);
+      res.send(results)
     });
 });
 
