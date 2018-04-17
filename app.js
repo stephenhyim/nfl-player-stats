@@ -19,7 +19,7 @@ app.get('/fighters', (request, response) => {
       return response.text();
   }).then((body) => {
       let results = JSON.parse(body)
-      console.log(results) // server log
+      console.log(results) // logs to server
       response.send(results) // sends to frontend
     });
 });
