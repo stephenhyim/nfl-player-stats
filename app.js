@@ -4,7 +4,6 @@ const app = express()
 const path = require('path')
 const fetch = require('node-fetch')
 const PORT = 8000
-const render = require('./public/javascripts/renderData.js');
 
 app.use(express.static('public'))
 
