@@ -1,11 +1,10 @@
 const axios = require('axios');
-
 document.addEventListener('DOMContentLoaded', () => {
 
-    let id = '0201558025';
-    axios.get(`/books/${id}`)
-    .then(function (response) {
-        console.log(response);
+    let isbn = '0201558025';
+    axios.get(`/books/${isbn}`)
+    .then((response) => {
+        console.log(response); 
     })
     .catch(function (error) {
         console.log(error);
@@ -14,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let query = "grace hopper";
 
     axios.get(`/search?string=${query}`)
-    .then(function (response) {
+    .then((response) => {
         console.log(response);
     })
     .catch(function (error) {
