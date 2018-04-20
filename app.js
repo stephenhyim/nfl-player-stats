@@ -1,6 +1,5 @@
 const express = require('express')
 const app = express()
-// const http = requestuire('http').Server(app)
 const path = require('path')
 const fetch = require('node-fetch')
 const PORT = 8000
@@ -11,16 +10,28 @@ app.get('/', (request, res) => {
   res.sendFile(path.join(__dirname, './public/index.html'))
 })
 
-// create route
-app.get('/fighters', (request, response) => {
+// create route to get single book by its isbn
+app.get('/books/:isbn', (request, response) => {
   // make api call using fetch
-  fetch('http://ufc-data-api.ufc.com//api/v1/us/fighters')
+  fetch(`http://openlibrary.org/api/books?bibkeys=ISBN:${request.params.isbn}&format=json&jscmd=data`)
   .then((response) => {
       return response.text();
   }).then((body) => {
       let results = JSON.parse(body)
-      console.log(results) // logs to server
+      console.log(results)   // logs to server
       response.send(results) // sends to frontend
+    });
+});
+
+// create a search route
+app.get('/search', (request, response) => {
+  fetch(`http://openlibrary.org/search.json?q=${request.query.string}`)
+  .then((response) => {
+      return response.text();
+  }).then((body) => {
+      let results = JSON.parse(body)
+      console.log(results)
+      response.send(results)
     });
 });
 
