@@ -1,4 +1,5 @@
 const axios = require('axios');
+
 document.addEventListener('DOMContentLoaded', () => {
 
     let isbn = '0201558025';
@@ -11,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     let query = "grace hopper";
-
     axios.get(`/search?string=${query}`)
     .then((response) => {
         console.log(response);
