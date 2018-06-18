@@ -1,6 +1,6 @@
 Simple Node Backend for avoiding CORS issues in development
 - npm install
-- webpack
+- npm run build
 - npm start
 
 Technologies
