@@ -13,6 +13,7 @@
   },
   "scripts": {
     "build": "webpack --watch",
+    
     "start": "node app.js",
     "start:debug": "DEBUG=* node app.js"
   },

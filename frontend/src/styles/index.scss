@@ -1,0 +1,59 @@
+body {
+    display: flex;
+    flex-direction: column;
+    background-image: url("../images/football_field.jpg");
+    font-family: 'Patua One', cursive;
+
+}
+
+
+.title {
+    background-color: red;
+    color: white;
+    text-align: center;
+    height: 50px;
+    vertical-align: middle;
+    font-size: 40px;
+    padding-top: 10px;
+    font-family: 'Patua One', cursive;
+}
+
+.main {
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 125px;
+    
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 450px;
+    border-radius: 50%;
+    background-color: rgb(70, 3, 3);
+
+    .search-box {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 250px;
+        height: 150px;
+    }
+}
+
+.graphcontainer {
+    height: 500px;
+    width: 800px;
+    background-color: white;
+}
+
+.footballfield {
+    height: 400px;
+    width: 800px;
+}
+

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./dist/main.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./src/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./src/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./src/images/favicon-16x16.png">
+    
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <title>NFL Player Stats</title>
+    <!-- <script src="./dist/main.js"></script> -->
+</head>
+
+<body>
+    <h1 class="title">NFL Player Stats</h1>
+    <div class="main">
+        <div class="search-container">
+            <div class="search-box">
+                <select id="team1-dropdown">
+                    <option value="" selected disabled hidden>Player1's Team</option>
+                </select>
+                
+                <input class='player1-search' type="text">
+                <input class="player2-search" type='text'>
+                <input type="submit" value="Compare">
+            </div>
+        </div>
+        <div class="graphcontainer" id="d3-container">
+            
+        </div>
+    </div>
+    <script src="./dist/main.js"></script>
+  </body>
+</html>
