@@ -12,8 +12,8 @@
     "node": ">=8.1.0"
   },
   "scripts": {
-    "build": "webpack --watch",
-    
+    "watch": "webpack --watch",
+    "build": "webpack --config webpack.prod.js --prefix frontend --optimize-minimize" ,
     "start": "node app.js",
     "start:debug": "DEBUG=* node app.js"
   },
