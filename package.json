@@ -13,9 +13,10 @@
   },
   "scripts": {
     "watch": "webpack --watch",
-    "build": "webpack --config webpack.prod.js --prefix frontend --optimize-minimize" ,
+    "build": "webpack --config webpack.prod.js --optimize-minimize",
     "start": "node app.js",
-    "start:debug": "DEBUG=* node app.js"
+    "start:debug": "DEBUG=* node app.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run webpack:build --prefix frontend"
   },
   "dependencies": {
     "axios": "^0.18.0",
