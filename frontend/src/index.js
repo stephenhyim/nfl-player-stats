@@ -6,6 +6,8 @@ import Square from "./scripts/square";
 import { DOMExample } from "./scripts/DOMExample";
 const axios = require('axios');
 
+
+
 const team1_id = {
     "Los Angeles Chargers": "1f6dcffb-9823-43cd-9ff4-e7a8466749b5", 
     "Cincinnati Bengals": "ad4ae08f-d808-42d5-a1e6-e9bc4e34d123", 
@@ -51,22 +53,23 @@ Object.entries(team1_id).forEach(([teamname, teamid]) => {
     team1dropdown.appendChild(new Option(`${teamname}`, `${teamid}`))
 })
 
+// let team1 = 
 
-
+let selectedTeam1 = "";
 team1dropdown.addEventListener('change', (e) => {
-    const selectedTeam1 = e.target.value;
+    selectedTeam1 = e.target.value;
     console.log(selectedTeam1)
     
-     axios.get(`/teams/${selectedTeam1}`)
-     .then((response) => {
-        //  debugger
-         console.log(response.data);
+    //  axios.get(`/teams/${selectedTeam1}`)
+    //  .then((response) => {
+    //     //  debugger
+    //      console.log(response.data);
 
-     })
-     .catch(function (error) {
-        //  debugger
-         console.log(error);
-     })
+    //  })
+    //  .catch(function (error) {
+    //     //  debugger
+    //      console.log(error);
+    //  })
 })
 
 const player1 = document.getElementById("player1-search");
@@ -115,20 +118,21 @@ Object.entries(team2_id).forEach(([teamname, teamid]) => {
     team2dropdown.appendChild(new Option(`${teamname}`, `${teamid}`))
 })
 
+let selectedTeam2 = "";
 team2dropdown.addEventListener('change', (e) => {
-    const selectedTeam2 = e.target.value;
+    selectedTeam2 = e.target.value;
     console.log(selectedTeam2)
     
-     axios.get(`/teams/${selectedTeam2}`)
-     .then((response) => {
-        //  debugger
-         console.log(response.data);
+    //  axios.get(`/teams/${selectedTeam2}`)
+    //  .then((response) => {
+    //     //  debugger
+    //      console.log(response.data);
 
-     })
-     .catch(function (error) {
-        //  debugger
-         console.log(error);
-     })
+    //  })
+    //  .catch(function (error) {
+    //     //  debugger
+    //      console.log(error);
+    //  })
 })
 
 const player2 = document.getElementById("player2-search");
@@ -136,22 +140,37 @@ player2.addEventListener('keyup', (e) => {
     console.log(e.target.value);
 })
 
-// function dropdownFunction() {
-//     document.getElementById("position-dropdown").classList.toggle("show");
-// }
 
-// window.onclick = function(event) {
-//     if (!event.target.matches('.dropbtn')) {
-//         var dropdowns = document.getElementsByClassName("dropdown-content");
-//         var i;
-//         for (i = 0; i < dropdowns.length; i++) {
-//             var openDropdown = dropdowns[i];
-//             if (openDropdown.classList.contains('show')) {
-//                 openDropdown.classList.remove('show')
-//             }
-//         }
-//     }
-// }
+const button = document.getElementById('compare-btn');
+console.log(button);
+button.addEventListener("click",(e) => {
+    console.log(selectedTeam1);
+    console.log(selectedTeam2);
+    axios.get(`/teams/${selectedTeam1}`)
+    .then((response) => {
+       //  debugger
+        console.log(response.data);
+
+    })
+    .catch(function (error) {
+       //  debugger
+        console.log(error);
+    })
+
+    axios.get(`/teams/${selectedTeam2}`)
+    .then((response) => {
+       //  debugger
+        console.log(response.data);
+
+    })
+    .catch(function (error) {
+       //  debugger
+        console.log(error);
+    })
+})
+
+
+
 
 
 // const DUMMY_DATA = [
