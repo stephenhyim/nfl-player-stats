@@ -72,9 +72,11 @@ team1dropdown.addEventListener('change', (e) => {
     //  })
 })
 
-const player1 = document.getElementById("player1-search");
-player1.addEventListener('keyup', (e) => {
-    console.log(e.target.value);
+let player1 = "";
+const player1textinput = document.getElementById("player1-search");
+player1textinput.addEventListener('change', (e) => {
+    player1 = e.target.value;
+    // console.log(player1);
 });
 
 const team2_id = {
@@ -135,38 +137,49 @@ team2dropdown.addEventListener('change', (e) => {
     //  })
 })
 
-const player2 = document.getElementById("player2-search");
-player2.addEventListener('keyup', (e) => {
-    console.log(e.target.value);
+let player2 = "";
+const player2textinput = document.getElementById("player2-search");
+player2textinput.addEventListener('change', (e) => {
+    player2 = e.target.value;
+    // console.log(player2);
 })
 
 
 const button = document.getElementById('compare-btn');
-console.log(button);
+// console.log(button);
 button.addEventListener("click",(e) => {
-    console.log(selectedTeam1);
-    console.log(selectedTeam2);
+    // console.log(selectedTeam1);
+    // console.log(selectedTeam2);
+    console.log(player1);
+    console.log(player2);
     axios.get(`/teams/${selectedTeam1}`)
     .then((response) => {
        //  debugger
         console.log(response.data);
 
-    })
-    .catch(function (error) {
-       //  debugger
-        console.log(error);
-    })
+        const playerdata = {};
+        response.data.players.forEach((player) => {
+            playerdata[player.name] = player;
+        })
 
-    axios.get(`/teams/${selectedTeam2}`)
-    .then((response) => {
-       //  debugger
-        console.log(response.data);
+        console.log(playerdata[player1].receiving);
 
     })
     .catch(function (error) {
        //  debugger
         console.log(error);
     })
+
+    // axios.get(`/teams/${selectedTeam2}`)
+    // .then((response) => {
+    //    //  debugger
+    //     console.log(response.data);
+
+    // })
+    // .catch(function (error) {
+    //    //  debugger
+    //     console.log(error);
+    // })
 })
 
 
