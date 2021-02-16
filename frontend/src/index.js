@@ -42,8 +42,7 @@ const team1_id = {
 }
 
 
-// const player1 = document.getElementById("player1-name")
-// player1.addEventListener()
+
 
 const team1dropdown = document.getElementById("team1-dropdown")
 // const option = document.createElement("option")
@@ -64,15 +63,25 @@ team1dropdown.addEventListener('change', (e) => {
      axios.get(`/teams/${selectedTeam1}`)
      .then((response) => {
         //  debugger
-        //  console.log(response.data);
+         console.log(response.data);
 
      })
      .catch(function (error) {
         //  debugger
-        //  console.log(error);
+         console.log(error);
      })
 
      
+})
+
+const player1 = document.getElementById("player1-search");
+player1.addEventListener('keyup', (e) => {
+    console.log(e.target.value);
+});
+
+const player2 = document.getElementById("player2-search");
+player2.addEventListener('keyup', (e) => {
+    console.log(e.target.value);
 })
 
 // function dropdownFunction() {
@@ -164,7 +173,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const baseURL = 'http://api.sportradar.us/nfl/official/trial/v6/en/seasons/2020/REG/teams'
 
-   
+    
+
 
 
         // axios.get(`/player`)
