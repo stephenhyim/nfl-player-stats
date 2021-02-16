@@ -41,9 +41,6 @@ const team1_id = {
     "New Orleans Saints": "0d855753-ea21-4953-89f9-0e20aff9eb73", 
 }
 
-
-
-
 const team1dropdown = document.getElementById("team1-dropdown")
 // const option = document.createElement("option")
 // option.text = "Kiwi"
@@ -70,14 +67,69 @@ team1dropdown.addEventListener('change', (e) => {
         //  debugger
          console.log(error);
      })
-
-     
 })
 
 const player1 = document.getElementById("player1-search");
 player1.addEventListener('keyup', (e) => {
     console.log(e.target.value);
 });
+
+const team2_id = {
+    "Los Angeles Chargers": "1f6dcffb-9823-43cd-9ff4-e7a8466749b5", 
+    "Cincinnati Bengals": "ad4ae08f-d808-42d5-a1e6-e9bc4e34d123", 
+    "Tennessee Titans": "d26a1ca5-722d-4274-8f97-c92e49c96315", 
+    "Denver Broncos": "ce92bd47-93d5-4fe9-ada4-0fc681e6caa0", 
+    "Green Bay Packers": "a20471b4-a8d9-40c7-95ad-90cc30e46932", 
+    "Minnesota Vikings": "33405046-04ee-4058-a950-d606f8c30852", 
+    "Indianapolis Colts": "82cf9565-6eb9-4f01-bdbd-5aa0d472fcd9", 
+    "Jacksonville Jaguars": "f7ddd7fa-0bae-4f90-bc8e-669e4d6cf2de", 
+    "Las Vegas Raiders": "7d4fcc64-9cb5-4d1b-8e75-8a906d1e1576", 
+    "Carolina Panthers": "f14bf5cc-9a82-4a38-bc15-d39f75ed5314", 
+    "Houston Texans": "82d2d380-3834-4938-835f-aec541e5ece7", 
+    "Kansas City Chiefs": "6680d28d-d4d2-49f6-aace-5292d3ec02c2", 
+    "Pittsburgh Steelers": "cb2f9f1f-ac67-424e-9e72-1475cb0ed398", 
+    "New York Giants": "04aa1c9d-66da-489d-b16a-1dee3f2eec4d", 
+    "Dallas Cowboys": "e627eec7-bbae-4fa4-8e73-8e1d6bc5c060", 
+    "Los Angeles Rams": "2eff2a03-54d4-46ba-890e-2bc3925548f3", 
+    "New York Jets": "5fee86ae-74ab-4bdd-8416-42a9dd9964f3", 
+    "Buffalo Bills": "768c92aa-75ff-4a43-bcc0-f2798c2e1724", 
+    "Seattle Seahawks": "3d08af9e-c767-4f88-a7dc-b920c6d2b4a8", 
+    "Atlanta Falcons": "e6aa13a4-0055-48a9-bc41-be28dc106929", 
+    "Philadelphia Eagles": "386bdbf9-9eea-4869-bb9a-274b0bc66e80", 
+    "Washington Football Team": "22052ff7-c065-42ee-bc8f-c4691c50e624", 
+    "Arizona Cardinals": "de760528-1dc0-416a-a978-b510d20692ff", 
+    "San Francisco 49ers": "f0e724b0-4cbf-495a-be47-013907608da9", 
+    "Miami Dolphins": "4809ecb0-abd3-451d-9c4a-92a90b83ca06", 
+    "New England Patriots": "97354895-8c77-4fd4-a860-32e62ea7382a", 
+    "Cleveland Browns": "d5a2eb42-8065-4174-ab79-0a6fa820e35e", 
+    "Baltimore Ravens": "ebd87119-b331-4469-9ea6-d51fe3ce2f1c", 
+    "Chicago Bears": "7b112545-38e6-483c-a55c-96cf6ee49cb8", 
+    "Detroit Lions": "c5a59daa-53a7-4de0-851f-fb12be893e9e", 
+    "Tampa Bay Buccaneers": "4254d319-1bc7-4f81-b4ab-b5e6f3402b69", 
+    "New Orleans Saints": "0d855753-ea21-4953-89f9-0e20aff9eb73", 
+}
+
+const team2dropdown = document.getElementById("team2-dropdown")
+Object.entries(team2_id).forEach(([teamname, teamid]) => {
+    // console.log(`${teamname}: ${teamid}`)
+    team2dropdown.appendChild(new Option(`${teamname}`, `${teamid}`))
+})
+
+team2dropdown.addEventListener('change', (e) => {
+    const selectedTeam2 = e.target.value;
+    console.log(selectedTeam2)
+    
+     axios.get(`/teams/${selectedTeam2}`)
+     .then((response) => {
+        //  debugger
+         console.log(response.data);
+
+     })
+     .catch(function (error) {
+        //  debugger
+         console.log(error);
+     })
+})
 
 const player2 = document.getElementById("player2-search");
 player2.addEventListener('keyup', (e) => {
@@ -253,38 +305,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-const team2_id = {
-    "Los Angeles Chargers": "1f6dcffb-9823-43cd-9ff4-e7a8466749b5", 
-    "Cincinnati Bengals": "ad4ae08f-d808-42d5-a1e6-e9bc4e34d123", 
-    "Tennessee Titans": "d26a1ca5-722d-4274-8f97-c92e49c96315", 
-    "Denver Broncos": "ce92bd47-93d5-4fe9-ada4-0fc681e6caa0", 
-    "Green Bay Packers": "a20471b4-a8d9-40c7-95ad-90cc30e46932", 
-    "Minnesota Vikings": "33405046-04ee-4058-a950-d606f8c30852", 
-    "Indianapolis Colts": "82cf9565-6eb9-4f01-bdbd-5aa0d472fcd9", 
-    "Jacksonville Jaguars": "f7ddd7fa-0bae-4f90-bc8e-669e4d6cf2de", 
-    "Las Vegas Raiders": "7d4fcc64-9cb5-4d1b-8e75-8a906d1e1576", 
-    "Carolina Panthers": "f14bf5cc-9a82-4a38-bc15-d39f75ed5314", 
-    "Houston Texans": "82d2d380-3834-4938-835f-aec541e5ece7", 
-    "Kansas City Chiefs": "6680d28d-d4d2-49f6-aace-5292d3ec02c2", 
-    "Pittsburgh Steelers": "cb2f9f1f-ac67-424e-9e72-1475cb0ed398", 
-    "New York Giants": "04aa1c9d-66da-489d-b16a-1dee3f2eec4d", 
-    "Dallas Cowboys": "e627eec7-bbae-4fa4-8e73-8e1d6bc5c060", 
-    "Los Angeles Rams": "2eff2a03-54d4-46ba-890e-2bc3925548f3", 
-    "New York Jets": "5fee86ae-74ab-4bdd-8416-42a9dd9964f3", 
-    "Buffalo Bills": "768c92aa-75ff-4a43-bcc0-f2798c2e1724", 
-    "Seattle Seahawks": "3d08af9e-c767-4f88-a7dc-b920c6d2b4a8", 
-    "Atlanta Falcons": "e6aa13a4-0055-48a9-bc41-be28dc106929", 
-    "Philadelphia Eagles": "386bdbf9-9eea-4869-bb9a-274b0bc66e80", 
-    "Washington Football Team": "22052ff7-c065-42ee-bc8f-c4691c50e624", 
-    "Arizona Cardinals": "de760528-1dc0-416a-a978-b510d20692ff", 
-    "San Francisco 49ers": "f0e724b0-4cbf-495a-be47-013907608da9", 
-    "Miami Dolphins": "4809ecb0-abd3-451d-9c4a-92a90b83ca06", 
-    "New England Patriots": "97354895-8c77-4fd4-a860-32e62ea7382a", 
-    "Cleveland Browns": "d5a2eb42-8065-4174-ab79-0a6fa820e35e", 
-    "Baltimore Ravens": "ebd87119-b331-4469-9ea6-d51fe3ce2f1c", 
-    "Chicago Bears": "7b112545-38e6-483c-a55c-96cf6ee49cb8", 
-    "Detroit Lions": "c5a59daa-53a7-4de0-851f-fb12be893e9e", 
-    "Tampa Bay Buccaneers": "4254d319-1bc7-4f81-b4ab-b5e6f3402b69", 
-    "New Orleans Saints": "0d855753-ea21-4953-89f9-0e20aff9eb73", 
-}
+
     
