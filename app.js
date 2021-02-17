@@ -45,6 +45,22 @@ app.get('/teams/:selectedTeam1', (request, response) => {
   })
 });
 
+app.get('/teams/:selectedTeam2', (request, response) => {
+  fetch(`http://api.sportradar.us/nfl/official/trial/v6/en/seasons/2020/REG/teams/${request.params.selectedTeam2}/statistics.json?api_key=${secret.apiKey}`)
+  .then((response) => {
+    // debugger
+    return response.text();
+  }).then((body) => {
+    // debugger
+    let results = JSON.parse(body)
+    console.log(results)
+    response.send(results)
+  }).catch(function (error) {
+    // debugger
+    console.log(error)
+  })
+});
+
 // create a search route
 app.get('/search', (request, response) => {
   fetch(`http://openlibrary.org/search.json?q=${request.query.string}`)

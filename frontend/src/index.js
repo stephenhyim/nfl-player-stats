@@ -144,26 +144,26 @@ player2textinput.addEventListener('change', (e) => {
     // console.log(player2);
 })
 
-
+let playerdata = {};
 const button = document.getElementById('compare-btn');
 // console.log(button);
 button.addEventListener("click",(e) => {
     // console.log(selectedTeam1);
     // console.log(selectedTeam2);
-    console.log(player1);
-    console.log(player2);
+    // console.log(player1);
+    // console.log(player2);
     axios.get(`/teams/${selectedTeam1}`)
     .then((response) => {
        //  debugger
         console.log(response.data);
 
-        const playerdata = {};
+        // const playerdata = {};
         response.data.players.forEach((player) => {
             playerdata[player.name] = player;
         })
 
-        console.log(playerdata[player1].receiving);
-
+        console.log(playerdata[player1].receiving); //[player1].passing, [player1].receiving, [player1].rushing
+        playerdata = playerdata[player1].receiving
     })
     .catch(function (error) {
        //  debugger
@@ -180,6 +180,23 @@ button.addEventListener("click",(e) => {
     //    //  debugger
     //     console.log(error);
     // })
+
+    // const DUMMY_DATA = [
+    //     playerdata
+    //     // { id: 'd1', name: 'Titans', market: 'Tennessee'},
+    //     // { id: 'd2', name: 'Falcons', market: 'Atlanta'},
+    //     // { id: 'd3', name: 'Giants', market: 'New York'},
+    //     // { id: 'd4', name: 'Dolphins', market: 'Miami'},
+    // ];
+
+    // const container = d3.select('#d3-container')
+    //     .selectAll('p')
+    //     .data(DUMMY_DATA)
+    //     .enter()
+    //     .append('p')
+    //     .text(dta => dta.receptions);  //function probably map to display data
+
+
 })
 
 
@@ -202,56 +219,57 @@ button.addEventListener("click",(e) => {
 
 
 // TUTORIAL #1
-const data = [
-    {name: "Simon", score: 80},
-    {name: "Mary", score: 90},
-    {name: "John", score: 60}
-];
+// const data = [
+//     // playerdata
+//     {name: "Simon", score: 80},
+//     {name: "Mary", score: 90},
+//     {name: "John", score: 60}
+// ];
 
-const width = 800;
-const height = 400;
-const margin = { top: 50, bottom: 50, left: 50, right:50 }
+// const width = 800;
+// const height = 400;
+// const margin = { top: 50, bottom: 50, left: 50, right:50 }
 
-const svg = d3.select('#d3-container')
-    .append('svg')
-    .attr('height', height - margin.top - margin.bottom)
-    .attr('width', width - margin.left - margin.right )
-    .attr('viewBox', [0, 0, width, height])
+// const svg = d3.select('#d3-container')
+//     .append('svg')
+//     .attr('height', height - margin.top - margin.bottom)
+//     .attr('width', width - margin.left - margin.right )
+//     .attr('viewBox', [0, 0, width, height])
 
-const x = d3.scaleBand()
-    .domain(d3.range(data.length))
-    .range([margin.left, width - margin.right])
-    .padding(0.1);
+// const x = d3.scaleBand()
+//     .domain(d3.range(data.length))
+//     .range([margin.left, width - margin.right])
+//     .padding(0.1);
 
-const y = d3.scaleLinear()
-    .domain([0,100])
-    .range([height - margin.bottom, margin.top])
+// const y = d3.scaleLinear()
+//     .domain([0,100])
+//     .range([height - margin.bottom, margin.top])
 
-svg
-    .append('g')
-    .attr('fill', 'royalblue')
-    .selectAll('rect')
-    // .data(data.sort((a,b) => d3.descending(a.score, b.score))) SORTS DESCENDING
-    .data(data)
-    .join('rect')
-        .attr('x', (d, i) => x(i))
-        .attr('y', (d) => y(d.score))
-        .attr('height', (d) => y(0) - y(d.score))
-        .attr('width', x.bandwidth())
+// svg
+//     .append('g')
+//     .attr('fill', 'royalblue')
+//     .selectAll('rect')
+//     // .data(data.sort((a,b) => d3.descending(a.score, b.score))) SORTS DESCENDING
+//     .data(data)
+//     .join('rect')
+//         .attr('x', (d, i) => x(i))
+//         .attr('y', (d) => y(d.score))
+//         .attr('height', (d) => y(0) - y(d.score))
+//         .attr('width', x.bandwidth())
 
-    function xAxis(g) {
-        g.attr('transform', `translate(0, ${height - margin.bottom})`)
-        .call(d3.axisBottom(x).tickFormat(i => data[i].name))
-        .attr('font-size', '15px')
-        .attr('color', 'black')
-    }
+//     function xAxis(g) {
+//         g.attr('transform', `translate(0, ${height - margin.bottom})`)
+//         .call(d3.axisBottom(x).tickFormat(i => data[i].name))
+//         .attr('font-size', '15px')
+//         .attr('color', 'black')
+//     }
 
-    function yAxis(g) {
+//     function yAxis(g) {
 
-    }
+//     }
 
-svg.append('g').call(xAxis);
-svg.node();
+// svg.append('g').call(xAxis);
+// svg.node();
 
 document.addEventListener('DOMContentLoaded', () => {
 
