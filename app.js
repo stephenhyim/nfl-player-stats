@@ -65,6 +65,7 @@ app.get('/teams/:selectedTeam2', (request, response) => {
 app.get('/search', (request, response) => {
   fetch(`http://openlibrary.org/search.json?q=${request.query.string}`)
   .then((response) => {
+    debugger
       return response.text();
   }).then((body) => {
       let results = JSON.parse(body)

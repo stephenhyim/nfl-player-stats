@@ -144,7 +144,14 @@ player2textinput.addEventListener('change', (e) => {
     // console.log(player2);
 })
 
-let playerdata = {};
+let player1Data = {};
+let player2Data = {};
+let wr1Data = {};
+let wr2Data = {};
+let rb1Data = {};
+let rb2Data = {};
+let qb1Data = {};
+let qb2Data = {};
 const button = document.getElementById('compare-btn');
 // console.log(button);
 button.addEventListener("click",(e) => {
@@ -152,19 +159,51 @@ button.addEventListener("click",(e) => {
     // console.log(selectedTeam2);
     // console.log(player1);
     // console.log(player2);
-    axios.get(`/teams/${selectedTeam1}`)
-    .then((response) => {
+    const requestOne = axios.get(`/teams/${selectedTeam1}`)
+    const requestTwo = axios.get(`/teams/${selectedTeam2}`)
+    axios.all([requestOne, requestTwo])
+    .then(axios.spread((...responses) => {
        //  debugger
-        console.log(response.data);
+        console.log(responses[0].data);
+        console.log(responses[1].data);
 
-        // const playerdata = {};
-        response.data.players.forEach((player) => {
-            playerdata[player.name] = player;
+        // const player1Data = {};
+        responses[0].data.players.forEach((player) => {
+            player1Data[player.name] = player;
+        })
+        
+        console.log(player1Data[player1]); //[player1].passing, [player1].receiving, [player1].rushing
+        // debugger
+        // if (player1Data[player1].position === 'WR' || player1Data[player1].position === 'TE') {
+        //     wr1Data = Object.assign(player1Data[player1].receiving);
+        // } else if (player1Data[player1].position === 'QB') {
+        //     qb1Data = Object.assign(player1Data[player1].passing)
+        // } else if (playerData[player1].position === 'RB') {
+        //     rb1Data = Object.assign(player1Data[player1].rushing)
+        // }
+        // console.log(wr1Data);
+        // console.log(qb1Data);
+        // console.log(rb1Data);
+        
+        responses[1].data.players.forEach((player) => {
+            player2Data[player.name] = player;
         })
 
-        console.log(playerdata[player1].receiving); //[player1].passing, [player1].receiving, [player1].rushing
-        playerdata = playerdata[player1].receiving
-    })
+        console.log(player2Data[player2]);
+
+        // if (player2Data[player2].position === 'WR' || player2Data[player2].position === 'TE') {
+        //     wr2Data = Object.assign(player2Data[player2].receiving);
+        // } else if (player2Data[player2].position === 'QB') {
+        //     qb2Data = Object.assign(player2Data[player2].passing)
+        // } else if (playerData[player1].position === 'RB') {
+        //     rb2Data = Object.assign(player2Data[player2].rushing)
+        // }
+        // console.log(wr2Data);
+        // console.log(qb2Data);
+        // console.log(rb2Data);
+    
+ 
+     }))
     .catch(function (error) {
        //  debugger
         console.log(error);
