@@ -21,14 +21,21 @@
     <div class="main">
         <div class="search-container">
             <div class="search-box">
+                <select id="position-dropdown">
+                    <option value="Pick a position"></option>
+                    <option value="QB"></option>
+                    <option value="RB"></option>
+                    <option value="WR"></option>
+                    <option value="TE"></option>
+                </select>
                 <select id="team1-dropdown">
                     <option value="" selected disabled hidden>Player1's Team</option>
                 </select>
-                <input id='player1-search' class='player1-search' type="text" placeholder="Firstname Lastname">
+                <input id='player1-search' class='player1-search' type="text" placeholder="Firstname Lastname" value="Travis Kelce">
                 <select id="team2-dropdown">
                     <option value="" selected disabled hidden>Player2's Team</option>
                 </select>
-                <input id ='player2-search' class="player2-search" type='text' placeholder="Firstname Lastname">
+                <input id ='player2-search' class="player2-search" type='text' placeholder="Firstname Lastname" value="Julio Jones">
                 <!-- <input id='compare-btn' type="submit" value="Compare"> -->
                 <button id='compare-btn'>Compare</button>
             </div>
