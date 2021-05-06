@@ -3,6 +3,13 @@ import "./styles/reset.scss";
 import "./images/football_field.jpg";
 const axios = require('axios');
 
+let selectedPosition = ""
+const positiondropdown = document.getElementById("position-dropdown")
+    positiondropdown.addEventListener("change", (e) => {
+        selectedPosition = e.currentTarget.value
+        console.log(selectedPosition)
+    })
+
 const team1_id = {
     "Los Angeles Chargers": "1f6dcffb-9823-43cd-9ff4-e7a8466749b5", 
     "Cincinnati Bengals": "ad4ae08f-d808-42d5-a1e6-e9bc4e34d123", 
@@ -39,9 +46,6 @@ const team1_id = {
 }
 
 const team1dropdown = document.getElementById("team1-dropdown")
-// const option = document.createElement("option")
-// option.text = "Kiwi"
-// team1dropdown.appendChild(option)
 
 Object.entries(team1_id).forEach(([teamname, teamid]) => {
     // console.log(`${teamname}: ${teamid}`)
