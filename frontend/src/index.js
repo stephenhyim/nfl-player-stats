@@ -52,63 +52,44 @@ Object.entries(team1_id).forEach(([teamname, teamid]) => {
     team1dropdown.appendChild(new Option(`${teamname}`, `${teamid}`))
 })
 
-// let team1 = 
-
 let selectedTeam1 = "";
 let selectedTeam1Players = [];
 let team1player1results = [];
-// const copyteam1player1results = {};
 const player1 = document.getElementById("player1-dropdown")
-// let player1final = {};
 team1dropdown.addEventListener('change', (e) => {
     selectedTeam1 = e.target.value;
     console.log(selectedTeam1)
     
-     axios.get(`/teams/${selectedTeam1}`)
-     .then((response) => {
-        //  debugger
-        //  console.log(response.data);
-        //  console.log(response.data.players)
+    axios.get(`/teams/${selectedTeam1}`)
+    .then((response) => {
          selectedTeam1Players = response.data.players
          console.log(selectedTeam1Players)
 
          team1player1results = selectedTeam1Players.filter(player => {
-            //  debugger
-             return player.position === selectedPosition
+            return player.position === selectedPosition
          })
          console.log(team1player1results)
 
-         team1player1results.forEach(player => {
-             player1.appendChild(new Option(`${player.name}`, player))
-            //  new Option.value = $
-            //  copyteam1player1results = Object.assign({}, player)
-            })
-
-            // console.log(copyteam1player1results)
-            
+        team1player1results.forEach(player => {
+            player1.appendChild(new Option(`${player.name}`, `${player.name}`))
         })
-        .catch(function (error) {
-            debugger
-            console.log(error);
-        })
+    })
+    .catch(function (error) {
+        // debugger
+        console.log(error);
+    })
 })
     
-// player1.addEventListener("change", (e) => {
-//     debugger
-//     player1final = e.currentTarget.value
-// })
-// //  player1final = player1.value
-//     console.log(player1final)
-
-
-
-
-// let player1 = "";
-// const player1textinput = document.getElementById("player1-search");
-// player1textinput.addEventListener('change', (e) => {
-//     player1 = e.target.value;
-//     // console.log(player1);
-// });
+let player1name = ""
+let finalPlayer1;
+player1.addEventListener("change", (e) => {
+    // debugger
+    player1name = e.currentTarget.value
+    finalPlayer1 = team1player1results.filter(player => {
+        return player.name === player1name
+    })
+    console.log(finalPlayer1)
+})
 
 const team2_id = {
     "Arizona Cardinals": "de760528-1dc0-416a-a978-b510d20692ff", 
@@ -166,12 +147,11 @@ team2dropdown.addEventListener('change', (e) => {
          console.log(selectedTeam2Players)
 
          team2player2results = selectedTeam2Players.filter(player => {
-
              return player.position === selectedPosition
          })
 
         team2player2results.forEach(player => {
-        player2.appendChild(new Option(`${player.name}`, player))
+            player2.appendChild(new Option(`${player.name}`, `${player.name}`))
         })
 
      })
@@ -181,94 +161,25 @@ team2dropdown.addEventListener('change', (e) => {
      })
 })
 
-// let player2 = "";
-// const player2textinput = document.getElementById("player2-search");
-// player2textinput.addEventListener('change', (e) => {
-//     player2 = e.target.value;
-//     // console.log(player2);
-// })
+let player2name = ""
+let finalPlayer2 = {};
+player2.addEventListener("change", (e) => {
+    player2name = e.currentTarget.value
+    finalPlayer2 = team2player2results.filter(player => {
+        return player.name === player2name
+    })
+    console.log(finalPlayer2)
+})
 
-let player1Data = {};
-let player2Data = {};
-let wr1Data = {};
-let wr2Data = {};
-let rb1Data = {};
-let rb2Data = {};
-let qb1Data = {};
-let qb2Data = {};
+
 const button = document.getElementById('compare-btn');
-// console.log(button);
 button.addEventListener("click",(e) => {
-    // console.log(selectedTeam1);
-    // console.log(selectedTeam2);
-    // console.log(player1);
-    // console.log(player1);
-    // const requestOne = axios.get(`/teams/${selectedTeam1}`)
-    // const requestTwo = axios.get(`/teams/${selectedTeam2}`)
-    // axios.all([requestOne, requestTwo])
-    // .then(axios.spread((...responses) => {
-    // // .then(response => {
-    //     // console.log(response.data);
-    //     debugger
-        
-        
-    //     console.log(responses[0].data);
-    //     console.log(responses[1].data);
-
-        
-    //     responses[0].data.players.forEach((player) => {
-    //         player1Data[player.name] = player;
-    //     })
-    //     debugger
-        
-    //     responses[1].data.players.forEach((players) => {
-    //         player2Data[players.name] = players;
-    //     })
-    //     debugger
-        
-    //     console.log(player1Data[player1]); //[player1].passing, [player1].receiving, [player1].rushing
-    //     // // debugger
-    //     if (player1Data[player1].position === 'WR' || player1Data[player1].position === 'TE') {
-    //         wr1Data = Object.assign(player1Data[player1].receiving);
-    //     } else if (player1Data[player1].position === 'QB') {
-    //         qb1Data = Object.assign(player1Data[player1].passing)
-    //     } else if (player1Data[player1].position === 'RB') {
-    //         rb1Data = Object.assign(player1Data[player1].rushing)
-    //     }
-    //     console.log(wr1Data);
-    //     console.log(qb1Data);
-    //     console.log(rb1Data);
-
-    //     console.log(player2Data[player2].position);
-
-    //     if (player2Data[player2].position === 'WR' || player2Data[player2].position === 'TE') {
-    //         wr2Data = Object.assign(player2Data[player2].receiving);
-    //     } else if (player2Data[player2].position === 'QB') {
-    //         qb2Data = Object.assign(player2Data[player2].passing)
-    //     } else if (player2Data[player2].position === 'RB') {
-    //         rb2Data = Object.assign(player2Data[player2].rushing)
-    //     }
-    //     console.log(wr2Data);
-    //     console.log(qb2Data);
-    //     console.log(rb2Data);
+    // debugger
+    //********************TESTINGSTART******* */
+    window.finalPlayer1 = finalPlayer1
+    window.finalPlayer2 = finalPlayer2
+    //********************TESTINGEND******* */
     
- 
-    //  }))
-    // .catch(function (error) {
-    //     debugger
-    //     console.log(error);
-    // })
-
-    axios.get(`/teams/${selectedTeam2}`)
-    .then((response) => {
-       //  debugger
-        console.log(response.data);
-
-    })
-    .catch(function (error) {
-       //  debugger
-        console.log(error);
-    })
 
     // const DUMMY_DATA = [
     //     playerdata

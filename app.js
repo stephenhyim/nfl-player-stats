@@ -29,32 +29,6 @@ app.get('/books/:isbn', (request, response) => {
     });
 });
 
-// app.get('/teams/:selectedTeam1', (request, res) => {
-//   fetch(`http://api.sportradar.us/nfl/official/trial/v6/en/seasons/2020/REG/teams/${request.params.selectedTeam1}/statistics.json?api_key=${secret.apiKey}`)
-//   .then((response) => {
-//     debugger
-//     console.log(1)
-//     const variable = response.text();
-//     console.log(response.body)
-//     return (variable);
-//   }).then((body) => {
-//     debugger
-//     console.log(2)
-//     console.log(request.constructor.name)
-//     // console.log(typeof response.flushHeaders)
-//     // console.log(typeof res.flushHeaders)
-//     console.log(Object.keys(request))
-//     // let results = JSON.parse(body)
-//     console.log(body)
-//     // console.log(results)
-//     res.send((body))
-//   }).catch(function (error) {
-//     debugger
-//     console.log(3)
-//     console.log(error)
-//   })
-// });
-
 app.get('/teams/:selectedTeam1', (request, res) => {
   fetch(`http://api.sportradar.us/nfl/official/trial/v6/en/seasons/2020/REG/teams/${request.params.selectedTeam1}/statistics.json?api_key=${secret.apiKey}`)
   .then((response) => {
