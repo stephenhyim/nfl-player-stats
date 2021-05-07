@@ -57,13 +57,16 @@ Object.entries(team1_id).forEach(([teamname, teamid]) => {
 let selectedTeam1 = "";
 let selectedTeam1Players = [];
 let team1player1results = [];
+// const copyteam1player1results = {};
+const player1 = document.getElementById("player1-dropdown")
+// let player1final = {};
 team1dropdown.addEventListener('change', (e) => {
     selectedTeam1 = e.target.value;
     console.log(selectedTeam1)
     
      axios.get(`/teams/${selectedTeam1}`)
      .then((response) => {
-         debugger
+        //  debugger
         //  console.log(response.data);
         //  console.log(response.data.players)
          selectedTeam1Players = response.data.players
@@ -74,14 +77,28 @@ team1dropdown.addEventListener('change', (e) => {
              return player.position === selectedPosition
          })
          console.log(team1player1results)
-     })
-     .catch(function (error) {
-         debugger
-         console.log(error);
-     })
-})
 
-const player1 = document.getElementById("player1")
+         team1player1results.forEach(player => {
+             player1.appendChild(new Option(`${player.name}`, player))
+            //  new Option.value = $
+            //  copyteam1player1results = Object.assign({}, player)
+            })
+
+            // console.log(copyteam1player1results)
+            
+        })
+        .catch(function (error) {
+            debugger
+            console.log(error);
+        })
+})
+    
+// player1.addEventListener("change", (e) => {
+//     debugger
+//     player1final = e.currentTarget.value
+// })
+// //  player1final = player1.value
+//     console.log(player1final)
 
 
 
@@ -130,11 +147,13 @@ const team2_id = {
 
 const team2dropdown = document.getElementById("team2-dropdown")
 Object.entries(team2_id).forEach(([teamname, teamid]) => {
-    // console.log(`${teamname}: ${teamid}`)
     team2dropdown.appendChild(new Option(`${teamname}`, `${teamid}`))
 })
 
 let selectedTeam2 = "";
+let selectedTeam2Players = [];
+let team2player2results = [];
+const player2 = document.getElementById("player2-dropdown")
 team2dropdown.addEventListener('change', (e) => {
     selectedTeam2 = e.target.value;
     console.log(selectedTeam2)
@@ -142,7 +161,18 @@ team2dropdown.addEventListener('change', (e) => {
      axios.get(`/teams/${selectedTeam2}`)
      .then((response) => {
         //  debugger
-         console.log(response.data);
+        //  console.log(response.data);
+         selectedTeam2Players = response.data.players
+         console.log(selectedTeam2Players)
+
+         team2player2results = selectedTeam2Players.filter(player => {
+
+             return player.position === selectedPosition
+         })
+
+        team2player2results.forEach(player => {
+        player2.appendChild(new Option(`${player.name}`, player))
+        })
 
      })
      .catch(function (error) {
@@ -151,12 +181,12 @@ team2dropdown.addEventListener('change', (e) => {
      })
 })
 
-let player2 = "";
-const player2textinput = document.getElementById("player2-search");
-player2textinput.addEventListener('change', (e) => {
-    player2 = e.target.value;
-    // console.log(player2);
-})
+// let player2 = "";
+// const player2textinput = document.getElementById("player2-search");
+// player2textinput.addEventListener('change', (e) => {
+//     player2 = e.target.value;
+//     // console.log(player2);
+// })
 
 let player1Data = {};
 let player2Data = {};
@@ -333,48 +363,6 @@ button.addEventListener("click",(e) => {
 document.addEventListener('DOMContentLoaded', () => {
 
     const baseURL = 'http://api.sportradar.us/nfl/official/trial/v6/en/seasons/2020/REG/teams'
-
-    
-
-
-
-        // axios.get(`/player`)
-        //     .then((response) => {
-        //         console.log(response.data.seasons);
-        //     })
-        //     .catch(function (error) {
-        //         console.log(error);
-        //     })
-
-        
-
-        // axios.get(`/weeklyschedule`)
-        //     .then((response) => {
-        //         console.log(response.data.week.game);
-        //         for (let i = 0; i < response.data.week.games.length; i++) {
-        //             team_id.push(home.id )
-        //         }
-        //     })
-        //     .catch(function(error) {
-        //         console.log(error);
-        //     })
-
-
- 
-
-
-    // let team1 = e.target.value 
-    // let test = '1f6dcffb-9823-43cd-9ff4-e7a8466749b5';
-    // let test = selectedTeam1;
-    //  axios.get(`/teams/${test}`)
-    //  .then((response) => {
-    //      debugger
-    //      console.log(response);
-    //  })
-    //  .catch(function (error) {
-    //      debugger
-    //      console.log(error);
-    //  })
     
 })
 
