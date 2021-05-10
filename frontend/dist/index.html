@@ -43,9 +43,10 @@
                 <button id='compare-btn'>Compare</button>
             </div>
         </div>
-        <ul id='charactersList'></ul>
-        <div class="graphcontainer" id="d3-container">
-            
+        <div class="graphcontainer">
+            <button onclick="update(data1)">Games Played</button>
+            <button onclick="update(data2)">Yards</button>
+            <div id="d3-container"></div>
         </div>
     </div>
     <script src="./dist/main.js"></script>
