@@ -171,6 +171,37 @@ player2.addEventListener("change", (e) => {
     console.log(finalPlayer2)
 })
 
+let qb1Passing = {
+    games_played: "",
+    completions: "",
+    attempts: "",
+    cmp_pct: "",
+    yards: "",
+    touchdowns: "",
+    interceptions: ""
+};
+
+let qb1Rushing = {
+    attempts: "",
+    yards: "",
+    touchdowns: ""
+}
+
+let qb2Passing = {
+    games_played: "",
+    completions: "",
+    attempts: "",
+    cmp_pct: "",
+    yards: "",
+    touchdowns: "",
+    interceptions: ""
+};
+
+let qb2Rushing = {
+    attempts: "",
+    yards: "",
+    touchdowns: ""
+}
 
 const button = document.getElementById('compare-btn');
 button.addEventListener("click",(e) => {
@@ -180,23 +211,93 @@ button.addEventListener("click",(e) => {
     window.finalPlayer2 = finalPlayer2
     //********************TESTINGEND******* */
     
+    // if (finalPlayer1[0].position === "QB") 
+    if (selectedPosition = "QB") {
 
-    // const DUMMY_DATA = [
-    //     playerdata
-    //     // { id: 'd1', name: 'Titans', market: 'Tennessee'},
-    //     // { id: 'd2', name: 'Falcons', market: 'Atlanta'},
-    //     // { id: 'd3', name: 'Giants', market: 'New York'},
-    //     // { id: 'd4', name: 'Dolphins', market: 'Miami'},
+        qb1Passing.games_played = finalPlayer1[0].games_played
+        qb1Passing.completions = finalPlayer1[0].passing.completions
+        qb1Passing.attempts = finalPlayer1[0].passing.attempts
+        qb1Passing.cmp_pct = finalPlayer1[0].passing.cmp_pct
+        qb1Passing.yards = finalPlayer1[0].passing.yards
+        qb1Passing.touchdowns = finalPlayer1[0].passing.touchdowns
+        qb1Passing.interceptions = finalPlayer1[0].passing.interceptions
+
+        qb1Rushing.attempts = finalPlayer1[0].rushing.attempts
+        qb1Rushing.yards = finalPlayer1[0].rushing.yards
+        qb1Rushing.touchdowns = finalPlayer1[0].rushing.touchdowns
+
+        qb2Passing.games_played = finalPlayer2[0].games_played
+        qb2Passing.completions = finalPlayer2[0].passing.completions
+        qb2Passing.attempts = finalPlayer2[0].passing.attempts
+        qb2Passing.cmp_pct = finalPlayer2[0].passing.cmp_pct
+        qb2Passing.yards = finalPlayer2[0].passing.yards
+        qb2Passing.touchdowns = finalPlayer2[0].passing.touchdowns
+        qb2Passing.interceptions = finalPlayer2[0].passing.interceptions
+
+        qb2Rushing.attempts = finalPlayer2[0].rushing.attempts
+        qb2Rushing.yards = finalPlayer2[0].rushing.yards
+        qb2Rushing.touchdowns = finalPlayer2[0].rushing.touchdowns
+
+    }
+    
+    debugger
+
+    console.log(qb1Passing)
+    console.log(qb1Rushing)
+    console.log(qb2Passing)
+    console.log(qb2Rushing)
+
+
+    // const data = [
+    //     // playerdata
+    //     {name: "Simon", score: 80},
+    //     {name: "Mary", score: 90},
+    //     {name: "John", score: 60}
     // ];
+    
+    const width = 800;
+    const height = 400;
+    const margin = { top: 50, bottom: 50, left: 50, right:50 }
+    
+    
+    const x = d3.scaleLinear()
+    .domain([0, d3.max(Object.values(qb1Passing))])
+    .range([0, width])
+    // .padding(0.1);
+    
+    const y = d3.scaleBand()
+    .domain(d3.range(Object.keys(qb1Passing).length))
+    .range([0, 20 * Object.keys(qb1Passing).length])
+    
+    const svg = d3.select('#d3-container')
+        .append('svg')
+        .attr('height', height - margin.top - margin.bottom)
+        .attr('width', width - margin.left - margin.right )
+        .attr('viewBox', [0, 0, width, height])
+        .attr("font-family", "sans-serif")
+        .attr("font-size", "10")
+        .attr("text-anchor", "end");
+        
 
-    // const container = d3.select('#d3-container')
-    //     .selectAll('p')
-    //     .data(DUMMY_DATA)
-    //     .enter()
-    //     .append('p')
-    //     .text(dta => dta.receptions);  //function probably map to display data
 
+    const bar = svg.selectAll("g")
+        .data(Object.values(qb1Passing))
+        .join("g")
+            .attr("transform", (d, i) => `translate(0,${y(i)})`)
+        
+    bar.append("rect")
+        .attr("fill", "steelblue")
+        .attr("width", x)
+        .attr("height", y.bandwidth() - 1);
 
+    bar.append("text")
+        .attr("fill", "white")
+        .attr("x", d => x(d) - 3)
+        .attr("y", (y.bandwidth() - 1) / 2)
+        .attr("dy", "0.35em")
+        .text(d => d);
+
+    return svg.node();
 })
 
 
