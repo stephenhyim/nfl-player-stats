@@ -171,37 +171,6 @@ player2.addEventListener("change", (e) => {
     console.log(finalPlayer2)
 })
 
-let qb1Passing = {
-    games_played: "",
-    completions: "",
-    attempts: "",
-    cmp_pct: "",
-    yards: "",
-    touchdowns: "",
-    interceptions: ""
-};
-
-let qb1Rushing = {
-    attempts: "",
-    yards: "",
-    touchdowns: ""
-}
-
-let qb2Passing = {
-    games_played: "",
-    completions: "",
-    attempts: "",
-    cmp_pct: "",
-    yards: "",
-    touchdowns: "",
-    interceptions: ""
-};
-
-let qb2Rushing = {
-    attempts: "",
-    yards: "",
-    touchdowns: ""
-}
 
 const button = document.getElementById('compare-btn');
 button.addEventListener("click",(e) => {
@@ -213,40 +182,85 @@ button.addEventListener("click",(e) => {
     
     // if (finalPlayer1[0].position === "QB") 
     if (selectedPosition = "QB") {
-
-        // qb1Passing.games_played = finalPlayer1[0].games_played
-        // qb1Passing.completions = finalPlayer1[0].passing.completions
-        // qb1Passing.attempts = finalPlayer1[0].passing.attempts
-        // qb1Passing.cmp_pct = finalPlayer1[0].passing.cmp_pct
-        // qb1Passing.yards = finalPlayer1[0].passing.yards
-        // qb1Passing.touchdowns = finalPlayer1[0].passing.touchdowns
-        // qb1Passing.interceptions = finalPlayer1[0].passing.interceptions
-
-        // qb1Rushing.attempts = finalPlayer1[0].rushing.attempts
-        // qb1Rushing.yards = finalPlayer1[0].rushing.yards
-        // qb1Rushing.touchdowns = finalPlayer1[0].rushing.touchdowns
-
-        // qb2Passing.games_played = finalPlayer2[0].games_played
-        // qb2Passing.completions = finalPlayer2[0].passing.completions
-        // qb2Passing.attempts = finalPlayer2[0].passing.attempts
-        // qb2Passing.cmp_pct = finalPlayer2[0].passing.cmp_pct
-        // qb2Passing.yards = finalPlayer2[0].passing.yards
-        // qb2Passing.touchdowns = finalPlayer2[0].passing.touchdowns
-        // qb2Passing.interceptions = finalPlayer2[0].passing.interceptions
-
-        // qb2Rushing.attempts = finalPlayer2[0].rushing.attempts
-        // qb2Rushing.yards = finalPlayer2[0].rushing.yards
-        // qb2Rushing.touchdowns = finalPlayer2[0].rushing.touchdowns
-
-        let data1 = [
-            {playername: finalPlayer1[0].name, value: finalPlayer1[0].games_played },
-            {playername: finalPlayer2[0].name, value: finalPlayer2[0].games_played}
+      
+        let qbGamesPlayed = [
+            {playername: finalPlayer1[0].name, value: finalPlayer1[0].games_played, key: 0},
+            {playername: finalPlayer2[0].name, value: finalPlayer2[0].games_played, key: 1}
+        ]
+        
+        let qbPassingYards = [
+            {playername: finalPlayer1[0].name, value: finalPlayer1[0].passing.yards, key: 0},
+            {playername: finalPlayer2[0].name, value: finalPlayer2[0].passing.yards, key: 1}
         ]
 
-        let data2 = [
-            {playername: finalPlayer1[0].name, value: finalPlayer1[0].passing.yards},
-            {playername: finalPlayer2[0].name, value: finalPlayer2[0].passing.yards}
+        let qbAttempts = [
+            {playername: finalPlayer1[0].name, value: finalPlayer1[0].passing.attempts, key: 0},
+            {playername: finalPlayer2[0].name, value: finalPlayer2[0].passing.attempts, key: 1},
+            {playername: `${finalPlayer1[0].name} `, value: finalPlayer1[0].passing.completions, key: 0},
+            {playername: `${finalPlayer2[0].name} `, value: finalPlayer2[0].passing.completions, key: 1}
         ]
+
+        let qbCompletion = [
+            {playername: finalPlayer1[0].name, value: finalPlayer1[0].passing.cmp_pct, key: 0},
+            {playername: finalPlayer2[0].name, value: finalPlayer2[0].passing.cmp_pct, key: 1}
+        ]
+
+        let qbRushing = [
+            {playername: finalPlayer1[0].name, value: finalPlayer1[0].rushing.attempts, key: 0},
+            {playername: finalPlayer2[0].name, value: finalPlayer2[0].rushing.attempts, key: 1},
+            {playername: `${finalPlayer1[0].name} `, value: finalPlayer1[0].rushing.yards, key: 0},
+            {playername: `${finalPlayer2[0].name} `, value: finalPlayer2[0].rushing.yards, key: 1}
+        ]
+
+        let qbTouchDowns = [
+            {playername: finalPlayer1[0].name, value: finalPlayer1[0].passing.touchdowns, key: 0},
+            {playername: finalPlayer2[0].name, value: finalPlayer2[0].passing.touchdowns, key: 1},
+            {playername: `${finalPlayer1[0].name} `, value: finalPlayer1[0].rushing.touchdowns, key: 0},
+            {playername: `${finalPlayer2[0].name} `, value: finalPlayer2[0].rushing.touchdowns, key: 1}
+        ]
+
+        let qbInterceptions = [
+            {playername: finalPlayer1[0].name, value: finalPlayer1[0].passing.interceptions, key: 0},
+            {playername: finalPlayer2[0].name, value: finalPlayer2[0].passing.interceptions, key: 1}
+        ]
+        
+        let d1Button = document.createElement("button")
+        d1Button.onclick = () => {update(qbGamesPlayed)}
+        d1Button.textContent = "Games Played"
+
+        let d2Button = document.createElement("button")
+        d2Button.onclick = () => {update(qbPassingYards)}
+        d2Button.textContent = "Passing"
+
+        let d3Button = document.createElement("button")
+        d3Button.onclick = () => {update(qbAttempts)}
+        d3Button.textContent = "Passing Attempts/Completion"
+
+        let d4Button = document.createElement("button")
+        d4Button.onclick = () => {update(qbCompletion)}
+        d4Button.textContent = "Passing Completion %"
+        
+        let d5Button = document.createElement("button")
+        d5Button.onclick = () => {update(qbRushing)}
+        d5Button.textContent = "Rushing"
+        
+        let d6Button = document.createElement("button")
+        d6Button.onclick = () => {update(qbTouchDowns)}
+        d6Button.textContent = "Touchdowns"
+
+        let d7Button = document.createElement("button")
+        d7Button.onclick = () => {update(qbInterceptions)}
+        d7Button.textContent = "Interceptions"
+
+        let graph = document.getElementsByClassName("graphcontainer")[0]
+        // debugger
+        graph.appendChild(d1Button)
+        graph.appendChild(d2Button)
+        graph.appendChild(d3Button)
+        graph.appendChild(d4Button)
+        graph.appendChild(d5Button)
+        graph.appendChild(d6Button)
+        graph.appendChild(d7Button)
 
         const margin = { top: 50, bottom: 50, left: 50, right:50 }
         const width = 800 - margin.left - margin.right;
@@ -264,48 +278,64 @@ button.addEventListener("click",(e) => {
             .range([0, width])
             .padding(0.2);
         const xAxis = svg.append("g")
+            // .attr("transform", "translate(0, " + height + ")")
             .attr("transform", "translate(0, " + height + ")")
         
         const y = d3.scaleLinear()
             .range([height, 0])
         const yAxis = svg.append("g")
             .attr("class", "myYaxis")
+
+        
+       
+        
+        
         
         function update(data) {
+
             x.domain(data.map(function(d) { return d.playername; }))
             xAxis.call(d3.axisBottom(x))
 
             y.domain([0, d3.max(data, function(d) { return d.value }) ]);
             yAxis.transition().duration(1000).call(d3.axisLeft(y));
 
-            const u = svg.selectAll("rect")
-                .data(data)
+            
+            const barChart = svg.selectAll("rect")
+            .data(data)
 
-            u
+            barChart
                 .enter()
                 .append("rect")
-                .merge(u)
+                .merge(barChart)
                 .transition()
                 .duration(1000)
                     .attr("x", function(d) {return x(d.playername); })
                     .attr("y", function(d) {return y(d.value); })
                     .attr("width", x.bandwidth())
                     .attr("height", function(d) {return height - y(d.value); })
-                    .attr("fill", "red")
+                    .attr("fill", function(d) {
+                        debugger
+                        if (d.key === 0) {
+                            return '#e41a1c'
+                        } else {
+                            return '#377eb8'
+                        }
+                    })
+                    
 
-            u
+            barChart
                 .exit()
                 .remove()
 
         }
 
-        update(data1)
+        update(qbGamesPlayed)
 
         // return svg.node();
 
     }
     
-    debugger
+    // debugger
 
     
     
@@ -313,80 +343,9 @@ button.addEventListener("click",(e) => {
 })
 
 
-
-
-
-// const DUMMY_DATA = [
-//     { id: 'd1', name: 'Titans', market: 'Tennessee'},
-//     { id: 'd2', name: 'Falcons', market: 'Atlanta'},
-//     { id: 'd3', name: 'Giants', market: 'New York'},
-//     { id: 'd4', name: 'Dolphins', market: 'Miami'},
-// ];
-
-// const container = d3.select('#d3-container')
-//     .selectAll('p')
-//     .data(DUMMY_DATA)
-//     .enter()
-//     .append('p')
-//     .text(dta => dta.name);  //function probably map to display data
-
-
-// TUTORIAL #1
-// const data = [
-//     // playerdata
-//     {name: "Simon", score: 80},
-//     {name: "Mary", score: 90},
-//     {name: "John", score: 60}
-// ];
-
-// const width = 800;
-// const height = 400;
-// const margin = { top: 50, bottom: 50, left: 50, right:50 }
-
-// const svg = d3.select('#d3-container')
-//     .append('svg')
-//     .attr('height', height - margin.top - margin.bottom)
-//     .attr('width', width - margin.left - margin.right )
-//     .attr('viewBox', [0, 0, width, height])
-
-// const x = d3.scaleBand()
-//     .domain(d3.range(data.length))
-//     .range([margin.left, width - margin.right])
-//     .padding(0.1);
-
-// const y = d3.scaleLinear()
-//     .domain([0,100])
-//     .range([height - margin.bottom, margin.top])
-
-// svg
-//     .append('g')
-//     .attr('fill', 'royalblue')
-//     .selectAll('rect')
-//     // .data(data.sort((a,b) => d3.descending(a.score, b.score))) SORTS DESCENDING
-//     .data(data)
-//     .join('rect')
-//         .attr('x', (d, i) => x(i))
-//         .attr('y', (d) => y(d.score))
-//         .attr('height', (d) => y(0) - y(d.score))
-//         .attr('width', x.bandwidth())
-
-//     function xAxis(g) {
-//         g.attr('transform', `translate(0, ${height - margin.bottom})`)
-//         .call(d3.axisBottom(x).tickFormat(i => data[i].name))
-//         .attr('font-size', '15px')
-//         .attr('color', 'black')
-//     }
-
-//     function yAxis(g) {
-
-//     }
-
-// svg.append('g').call(xAxis);
-// svg.node();
-
 document.addEventListener('DOMContentLoaded', () => {
 
-    const baseURL = 'http://api.sportradar.us/nfl/official/trial/v6/en/seasons/2020/REG/teams'
+    // const baseURL = 'http://api.sportradar.us/nfl/official/trial/v6/en/seasons/2020/REG/teams'
     
 })
 
