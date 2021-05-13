@@ -183,16 +183,16 @@ button.addEventListener("click",(e) => {
     if (finalPlayer1[0].position === "QB" && finalPlayer2[0].position === "QB") {
       
         let qbGamesPlayed = [
-            {playername: finalPlayer1[0].name, value: finalPlayer1[0].games_played, key: 0},
-            {playername: finalPlayer2[0].name, value: finalPlayer2[0].games_played, key: 1}
+            {playername: finalPlayer1[0].name, value: finalPlayer1[0].games_played, key: 0, title: "Games Played"},
+            {playername: finalPlayer2[0].name, value: finalPlayer2[0].games_played, key: 1, title: "Games Played"}
         ]
         
         
         let qbAttempts = [
-            {playername: finalPlayer1[0].name, value: finalPlayer1[0].passing.attempts, key: 0},
-            {playername: finalPlayer2[0].name, value: finalPlayer2[0].passing.attempts, key: 1},
-            {playername: `${finalPlayer1[0].name} `, value: finalPlayer1[0].passing.completions, key: 0},
-            {playername: `${finalPlayer2[0].name} `, value: finalPlayer2[0].passing.completions, key: 1}
+            {playername: finalPlayer1[0].name, value: finalPlayer1[0].passing.attempts, key: 0, title: "Passing Attempts & Completions"},
+            {playername: finalPlayer2[0].name, value: finalPlayer2[0].passing.attempts, key: 1, title: "Passing Attempts & Completions"},
+            {playername: `${finalPlayer1[0].name} `, value: finalPlayer1[0].passing.completions, key: 0, title: "Passing Attempts & Completions"},
+            {playername: `${finalPlayer2[0].name} `, value: finalPlayer2[0].passing.completions, key: 1, title: "Passing Attempts & Completions"}
         ]
         
         let qbCompletion = [
@@ -301,8 +301,24 @@ button.addEventListener("click",(e) => {
             .range([height, 0])
         const yAxis = svg.append("g")
             .attr("class", "myYaxis")
+
+        svg.append("text")
+            .attr("x", (width / 2))
+            .attr("y", 0 - margin.top / 2)
+            .attr("text-anchor", "middle")
+            .style("font-size", "16px")
+            .style("text-decoration", "underline")
+            .text("Value vs Date Graph");
         
         function update(data) {
+
+            let tooltip = d3.select("rect")
+                .append("div")
+                .style("position", "absolute")
+                .style("z-index", "10")
+                .style("visibility", "hidden")
+                .style("background", "#000")
+                .text(function(d) {return d.value});
 
             x.domain(data.map(function(d) { return d.playername; }))
             xAxis.call(d3.axisBottom(x))
@@ -310,28 +326,41 @@ button.addEventListener("click",(e) => {
             y.domain([0, d3.max(data, function(d) { return d.value }) ]);
             yAxis.transition().duration(1000).call(d3.axisLeft(y));
 
-            
+            svg.selectAll("text")
+                .data(data)
+                .enter()
+                .attr("x", (width / 2))
+                .attr("y", 0 - margin.top / 2)
+                .attr("text-anchor", "middle")
+                .style("font-size", "16px")
+                .style("text-decoration", "underline")
+                .text(function(d) {return d.title});
+
             const barChart = svg.selectAll("rect")
             .data(data)
 
             barChart
                 .enter()
                 .append("rect")
+                .text(function(d) {return d.value})
                 .merge(barChart)
                 .transition()
                 .duration(1000)
-                    .attr("x", function(d) {return x(d.playername); })
-                    .attr("y", function(d) {return y(d.value); })
-                    .attr("width", x.bandwidth())
-                    .attr("height", function(d) {return height - y(d.value); })
-                    .attr("fill", function(d) {
-                        // debugger
-                        if (d.key === 0) {
-                            return '#e41a1c'
-                        } else {
-                            return '#377eb8'
-                        }
-                    })
+                .attr("x", function(d) {return x(d.playername); })
+                .attr("y", function(d) {return y(d.value); })
+                .attr("width", x.bandwidth())
+                .attr("height", function(d) {return height - y(d.value); })
+                .attr("fill", function(d) {
+                    // debugger
+                    if (d.key === 0) {
+                        return '#e41a1c'
+                    } else {
+                        return '#377eb8'
+                    }
+                })
+                .on("mouseover", function(d){tooltip.text(d.value); return tooltip.style("visibility", "visible");})
+                    .on("mousemove", function(){return tooltip.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");})
+                    .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
                     
 
             barChart
@@ -480,7 +509,7 @@ button.addEventListener("click",(e) => {
 
             
             const barChart = svg.selectAll("rect")
-            .data(data)
+                .data(data)
 
             barChart
                 .enter()
@@ -522,14 +551,24 @@ const resetbutton = document.getElementById('reset-btn');
 resetbutton.addEventListener("click",(e) => {
     document.getElementById('position-dropdown').selectedIndex=0;
     document.getElementById('team1-dropdown').selectedIndex=0;
-    document.getElementById('player1-dropdown').selectedIndex=0;
-    
-    const player1dropdown = document.querySelector('#player1-dropdown')
-    removeAllChildNodes(player1dropdown)
+    // document.getElementById('player1-dropdown').selectedIndex=0;
+    const player1dropdown = document.getElementById('player1-dropdown')
+    while (player1dropdown.childNodes.length > 1) {
+        debugger
+        player1dropdown.removeChild(player1dropdown.lastChild);
+    }
+    // const player1dropdown = document.querySelector('#player1-dropdown')
+    // removeAllChildNodes(player1dropdown)
     document.getElementById('team2-dropdown').selectedIndex=0;
-    document.getElementById('player2-dropdown').selectedIndex=0;
-    const player2dropdown = document.querySelector('#player2-dropdown')
-    removeAllChildNodes(player2dropdown)
+    // document.getElementById('player2-dropdown').selectedIndex=0;
+    const player2dropdown = document.getElementById('player2-dropdown')
+    while (player2dropdown.childNodes.length > 1) {
+        player2dropdown.removeChild(player2dropdown.lastChild);
+    }
+    // const player2dropdown = document.querySelector('#player2-dropdown')
+    // removeAllChildNodes(player2dropdown)
+    const graph = document.getElementsByClassName("graphcontainer")[0]
+    removeAllChildNodes(graph)
     d3.selectAll('svg').remove();
 })
 
