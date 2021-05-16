@@ -52,6 +52,16 @@ body {
     background-color: white;
 }
 
+.bar > rect {
+    stroke: black;
+    stroke-width: 1;
+}
+
+.bar > text {
+    fill: white;
+    text-anchor: middle;
+}
+
 .footballfield {
     height: 400px;
     width: 800px;

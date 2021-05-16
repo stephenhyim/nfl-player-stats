@@ -287,9 +287,10 @@ button.addEventListener("click",(e) => {
             .append('svg')
                 .attr('height', height + margin.top + margin.bottom)
                 .attr('width', width + margin.left + margin.right )
-            .append("g")
-                .attr("transform", 
-                "translate(" + margin.left + "," + margin.top + ")");
+            
+        const g = svg.append("g")
+                // .attr('class', 'bar')
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
         
         const x = d3.scaleBand()
             .range([0, width])
@@ -302,23 +303,32 @@ button.addEventListener("click",(e) => {
         const yAxis = svg.append("g")
             .attr("class", "myYaxis")
 
-        svg.append("text")
-            .attr("x", (width / 2))
-            .attr("y", 0 - margin.top / 2)
-            .attr("text-anchor", "middle")
-            .style("font-size", "16px")
-            .style("text-decoration", "underline")
-            .text("Value vs Date Graph");
+        // const bar = svg.selectAll("g")
+        //     .data(data)
+        //     .enter()
+        //     .append("g")
+        //     .attr("transform", 
+        //         "translate(" + margin.left + "," + margin.top + ")");
+
+        // const group = svg.append("g").attr("class", "bar")
+
+        // svg.append("text")
+        //     .attr("x", (width / 2))
+        //     .attr("y", 0 - margin.top / 2)
+        //     .attr("text-anchor", "middle")
+        //     .style("font-size", "16px")
+        //     .style("text-decoration", "underline")
+        //     .text("Value vs Date Graph");
         
         function update(data) {
 
-            let tooltip = d3.select("rect")
-                .append("div")
-                .style("position", "absolute")
-                .style("z-index", "10")
-                .style("visibility", "hidden")
-                .style("background", "#000")
-                .text(function(d) {return d.value});
+            // let tooltip = d3.select("rect")
+            //     .append("div")
+            //     .style("position", "absolute")
+            //     .style("z-index", "10")
+            //     .style("visibility", "hidden")
+            //     .style("background", "#000")
+            //     .text(function(d) {return d.value});
 
             x.domain(data.map(function(d) { return d.playername; }))
             xAxis.call(d3.axisBottom(x))
@@ -326,23 +336,26 @@ button.addEventListener("click",(e) => {
             y.domain([0, d3.max(data, function(d) { return d.value }) ]);
             yAxis.transition().duration(1000).call(d3.axisLeft(y));
 
-            svg.selectAll("text")
-                .data(data)
-                .enter()
-                .attr("x", (width / 2))
-                .attr("y", 0 - margin.top / 2)
-                .attr("text-anchor", "middle")
-                .style("font-size", "16px")
-                .style("text-decoration", "underline")
-                .text(function(d) {return d.title});
+            // svg.selectAll("text")
+            //     .data(data)
+            //     .enter()
+            //     .attr("x", (width / 2))
+            //     // .attr("x", function(d, i) { return i * (width / 2)})
+            //     .attr("y", 0 - margin.top / 2)
+            //     .attr("text-anchor", "middle")
+            //     .style("font-size", "16px")
+            //     .style("text-decoration", "underline")
+            //     .text(function(d) {return d.value});
 
-            const barChart = svg.selectAll("rect")
+            
+
+            const barChart = g.selectAll("rect")
             .data(data)
 
             barChart
                 .enter()
                 .append("rect")
-                .text(function(d) {return d.value})
+                // .text(function(d) {return d.value})
                 .merge(barChart)
                 .transition()
                 .duration(1000)
@@ -358,14 +371,41 @@ button.addEventListener("click",(e) => {
                         return '#377eb8'
                     }
                 })
-                .on("mouseover", function(d){tooltip.text(d.value); return tooltip.style("visibility", "visible");})
-                    .on("mousemove", function(){return tooltip.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");})
-                    .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
-                    
+                // .on("mouseover", function(d){tooltip.text(d.value); return tooltip.style("visibility", "visible");})
+                //     .on("mousemove", function(){return tooltip.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");})
+                //     .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
+               
+            // barChart
+            //     .append("text")
+            //     .text(function(d) {return d.value})
+            //     .attr("x", x.bandwidth() / 2)
+            //     // .attr("y", function(d) {return height - y(d.value) + 20})
+            //     .attr("y", function(d) {return d.value})
+            //     .attr("text-anchor", "middle")  
+            //     .style('fill', 'green')  
 
             barChart
                 .exit()
                 .remove()
+
+
+            const texts = g.selectAll("text")
+                .data(data)
+
+            texts
+                .enter()
+                .append("text")
+                .attr("x", 150)
+                .attr("y", 150)
+            .merge(texts) 
+                .text(function(d) {return d.value})
+
+
+            texts
+                .exit()
+                .remove()
+
+                
 
         }
 
