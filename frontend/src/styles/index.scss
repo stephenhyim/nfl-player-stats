@@ -50,7 +50,20 @@ body {
     height: 500px;
     width: 800px;
     background-color: white;
+
 }
+
+.toolTip {
+    position: absolute;
+    display: none;
+    min-width: 80px;
+    height: auto;
+    background: none repeat scroll 0 0 #ffffff;
+    border: 1px solid black;
+    padding: 14px;
+    text-align: center;
+  }
+
 
 .bar > rect {
     stroke: black;
