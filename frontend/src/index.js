@@ -186,410 +186,701 @@ button.addEventListener("click",(e) => {
     //********************TESTINGEND******* */
     if (buttonFlag === true) {
         
-    if (finalPlayer1[0].position === "QB" && finalPlayer2[0].position === "QB") {
-          
-        let qbGamesPlayed = [
-            {playername: finalPlayer1[0].name, value: finalPlayer1[0].games_played, key: 0, title: "Games Played"},
-            {playername: finalPlayer2[0].name, value: finalPlayer2[0].games_played, key: 1, title: "Games Played"}
-        ]
-        
-        
-        let qbAttempts = [
-            {playername: finalPlayer1[0].name, value: finalPlayer1[0].passing.attempts, key: 0, title: "Passing Attempts"},
-            {playername: finalPlayer2[0].name, value: finalPlayer2[0].passing.attempts, key: 1, title: "Passing Attempts"},
-            {playername: `${finalPlayer1[0].name} `, value: finalPlayer1[0].passing.completions, key: 0, title: "Passing Completions"},
-            {playername: `${finalPlayer2[0].name} `, value: finalPlayer2[0].passing.completions, key: 1, title: "Passing Completions"}
-        ]
-        
-        let qbCompletion = [
-            {playername: finalPlayer1[0].name, value: finalPlayer1[0].passing.cmp_pct, key: 0, title: "Completion %"},
-            {playername: finalPlayer2[0].name, value: finalPlayer2[0].passing.cmp_pct, key: 1, title: "Completion %"}
-        ]
+        if (finalPlayer1[0].position === "QB" && finalPlayer2[0].position === "QB") {
+            
+            let qbGamesPlayed = [
+                {playername: finalPlayer1[0].name, value: finalPlayer1[0].games_played, key: 0, title: "Games Played"},
+                {playername: finalPlayer2[0].name, value: finalPlayer2[0].games_played, key: 1, title: "Games Played"}
+            ]
+            
+            
+            let qbAttempts = [
+                {playername: finalPlayer1[0].name, value: finalPlayer1[0].passing.attempts, key: 0, title: "Passing Attempts"},
+                {playername: finalPlayer2[0].name, value: finalPlayer2[0].passing.attempts, key: 1, title: "Passing Attempts"},
+                {playername: `${finalPlayer1[0].name} `, value: finalPlayer1[0].passing.completions, key: 0, title: "Passing Completions"},
+                {playername: `${finalPlayer2[0].name} `, value: finalPlayer2[0].passing.completions, key: 1, title: "Passing Completions"}
+            ]
+            
+            let qbCompletion = [
+                {playername: finalPlayer1[0].name, value: finalPlayer1[0].passing.cmp_pct, key: 0, title: "Completion %"},
+                {playername: finalPlayer2[0].name, value: finalPlayer2[0].passing.cmp_pct, key: 1, title: "Completion %"}
+            ]
 
-        let qbPassingYards = [
-            {playername: finalPlayer1[0].name, value: finalPlayer1[0].passing.yards, key: 0, title: "Passing Yards"},
-            {playername: finalPlayer2[0].name, value: finalPlayer2[0].passing.yards, key: 1, title: "Passing Yards"}
-        ]
+            let qbPassingYards = [
+                {playername: finalPlayer1[0].name, value: finalPlayer1[0].passing.yards, key: 0, title: "Passing Yards"},
+                {playername: finalPlayer2[0].name, value: finalPlayer2[0].passing.yards, key: 1, title: "Passing Yards"}
+            ]
 
-        let qbPassingTD = [
-            {playername: finalPlayer1[0].name, value: finalPlayer1[0].passing.touchdowns, key: 0, title: "Passing TD's"},
-            {playername: finalPlayer2[0].name, value: finalPlayer2[0].passing.touchdowns, key: 1, title: "Passing TD's"},
-        ]
+            let qbPassingTD = [
+                {playername: finalPlayer1[0].name, value: finalPlayer1[0].passing.touchdowns, key: 0, title: "Passing TD's"},
+                {playername: finalPlayer2[0].name, value: finalPlayer2[0].passing.touchdowns, key: 1, title: "Passing TD's"},
+            ]
 
-        let qbInterceptions = [
-            {playername: finalPlayer1[0].name, value: finalPlayer1[0].passing.interceptions, key: 0, title: "Interceptions"},
-            {playername: finalPlayer2[0].name, value: finalPlayer2[0].passing.interceptions, key: 1, title: "Interceptions"}
-        ]
+            let qbInterceptions = [
+                {playername: finalPlayer1[0].name, value: finalPlayer1[0].passing.interceptions, key: 0, title: "Interceptions"},
+                {playername: finalPlayer2[0].name, value: finalPlayer2[0].passing.interceptions, key: 1, title: "Interceptions"}
+            ]
 
-        let qbRushingAttempts = [
-            {playername: finalPlayer1[0].name, value: finalPlayer1[0].rushing.attempts, key: 0, title: "Rushing Attempts"},
-            {playername: finalPlayer2[0].name, value: finalPlayer2[0].rushing.attempts, key: 1, title: "Rushing Attempts"}
-        ]
+            let qbRushingAttempts = [
+                {playername: finalPlayer1[0].name, value: finalPlayer1[0].rushing.attempts, key: 0, title: "Rushing Attempts"},
+                {playername: finalPlayer2[0].name, value: finalPlayer2[0].rushing.attempts, key: 1, title: "Rushing Attempts"}
+            ]
 
-        let qbRushingYards = [
-            {playername: finalPlayer1[0].name, value: finalPlayer1[0].rushing.yards, key: 0, title: "Rushing Yards"},
-            {playername: finalPlayer2[0].name, value: finalPlayer2[0].rushing.yards, key: 1, title: "Rushing Yards"},
-        ]
+            let qbRushingYards = [
+                {playername: finalPlayer1[0].name, value: finalPlayer1[0].rushing.yards, key: 0, title: "Rushing Yards"},
+                {playername: finalPlayer2[0].name, value: finalPlayer2[0].rushing.yards, key: 1, title: "Rushing Yards"},
+            ]
 
-        let qbRushingTD = [
-            {playername: finalPlayer1[0].name, value: finalPlayer1[0].rushing.touchdowns, key: 0, title: "Rushing TD's"},
-            {playername: finalPlayer2[0].name, value: finalPlayer2[0].rushing.touchdowns, key: 1, title: "Rushing TD's"}
-        ]
+            let qbRushingTD = [
+                {playername: finalPlayer1[0].name, value: finalPlayer1[0].rushing.touchdowns, key: 0, title: "Rushing TD's"},
+                {playername: finalPlayer2[0].name, value: finalPlayer2[0].rushing.touchdowns, key: 1, title: "Rushing TD's"}
+            ]
 
-        
-        let d1Button = document.createElement("button")
-        d1Button.onclick = () => {update(qbGamesPlayed)}
-        d1Button.textContent = "Games Played"
+            
+            let d1Button = document.createElement("button")
+            d1Button.onclick = () => {update(qbGamesPlayed)}
+            d1Button.textContent = "Games Played"
 
-        let d2Button = document.createElement("button")
-        d2Button.onclick = () => {update(qbAttempts)}
-        d2Button.textContent = "Passing Attempts/Completion"
+            let d2Button = document.createElement("button")
+            d2Button.onclick = () => {update(qbAttempts)}
+            d2Button.textContent = "Passing Attempts/Completion"
 
-        let d3Button = document.createElement("button")
-        d3Button.onclick = () => {update(qbCompletion)}
-        d3Button.textContent = "Passing Completion %"
+            let d3Button = document.createElement("button")
+            d3Button.onclick = () => {update(qbCompletion)}
+            d3Button.textContent = "Passing Completion %"
 
-        let d4Button = document.createElement("button")
-        d4Button.onclick = () => {update(qbPassingYards)}
-        d4Button.textContent = "Passing Yards"
-        
-        let d5Button = document.createElement("button")
-        d5Button.onclick = () => {update(qbPassingTD)}
-        d5Button.textContent = "Passing TD's"
-        
-        let d6Button = document.createElement("button")
-        d6Button.onclick = () => {update(qbInterceptions)}
-        d6Button.textContent = "Interceptions"
+            let d4Button = document.createElement("button")
+            d4Button.onclick = () => {update(qbPassingYards)}
+            d4Button.textContent = "Passing Yards"
+            
+            let d5Button = document.createElement("button")
+            d5Button.onclick = () => {update(qbPassingTD)}
+            d5Button.textContent = "Passing TD's"
+            
+            let d6Button = document.createElement("button")
+            d6Button.onclick = () => {update(qbInterceptions)}
+            d6Button.textContent = "Interceptions"
 
-        let d7Button = document.createElement("button")
-        d7Button.onclick = () => {update(qbRushingAttempts)}
-        d7Button.textContent = "Rushing Attempts"
+            let d7Button = document.createElement("button")
+            d7Button.onclick = () => {update(qbRushingAttempts)}
+            d7Button.textContent = "Rushing Attempts"
 
-        let d8Button = document.createElement("button")
-        d8Button.onclick = () => {update(qbRushingYards)}
-        d8Button.textContent = "Rushing Yards"
+            let d8Button = document.createElement("button")
+            d8Button.onclick = () => {update(qbRushingYards)}
+            d8Button.textContent = "Rushing Yards"
 
-        let d9Button = document.createElement("button")
-        d9Button.onclick = () => {update(qbRushingTD)}
-        d9Button.textContent = "Rushing TD's"
+            let d9Button = document.createElement("button")
+            d9Button.onclick = () => {update(qbRushingTD)}
+            d9Button.textContent = "Rushing TD's"
 
-        let graph = document.getElementsByClassName("graphcontainer")[0]
-        // debugger
-        graph.appendChild(d1Button)
-        graph.appendChild(d2Button)
-        graph.appendChild(d3Button)
-        graph.appendChild(d4Button)
-        graph.appendChild(d5Button)
-        graph.appendChild(d6Button)
-        graph.appendChild(d7Button)
-        graph.appendChild(d8Button)
-        graph.appendChild(d9Button)
-
-
-        const margin = { top: 50, bottom: 50, left: 50, right:50 }
-        const width = 800 - margin.left - margin.right;
-        const height = 500 - margin.top - margin.bottom;
-        
-        const svg = d3.select('#d3-container')
-            .append('svg')
-                .attr('height', height + margin.top + margin.bottom)
-                .attr('width', width + margin.left + margin.right )
-                .append("g")
-                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-        
-        const x = d3.scaleBand()
-            .range([0, width])
-            .padding(0.2);
-        const xAxis = svg.append("g")
-            .attr("transform", "translate(0, " + height + ")")
-        
-        const y = d3.scaleLinear()
-            .range([height, 0])
-        const yAxis = svg.append("g")
-        
-        function update(data) {
-            // debugger
-                
-            // TRYING TO ADD TITLE DYNAMICALLY
-            // g.append("text")
-            //     .attr("transform", "translate(100, 0)")
-            //     .attr("x", 50)
-            //     .attr("y", 50)
-            //     .attr("font-size", "24px")
-            //     .text(function(d) {return d.title})
-
-            x.domain(data.map(function(d) { return d.playername; }))
-            xAxis.call(d3.axisBottom(x))
-
-            y.domain([0, d3.max(data, function(d) { return d.value }) ]);
-            yAxis.transition().duration(1000).call(d3.axisLeft(y));
-
-            const tooltip = d3.select('body')
-                .append('div')
-                .attr("class", "toolTip")
-                .attr('style', 'position: absolute; opacity: 0;')
-                .style("background-color", "white")
-                .style("border", "solid")
-                .style("border-width", "1px")
-                .style("border-radius", "5px")
-                .style("padding", "10px")
+            let graph = document.getElementsByClassName("graphcontainer")[0]
+            graph.appendChild(d1Button)
+            graph.appendChild(d2Button)
+            graph.appendChild(d3Button)
+            graph.appendChild(d4Button)
+            graph.appendChild(d5Button)
+            graph.appendChild(d6Button)
+            graph.appendChild(d7Button)
+            graph.appendChild(d8Button)
+            graph.appendChild(d9Button)
 
 
-            const barChart = svg.selectAll("rect")
-            .data(data)
+            const margin = { top: 50, bottom: 50, left: 50, right:50 }
+            const width = 800 - margin.left - margin.right;
+            const height = 500 - margin.top - margin.bottom;
+            
+            const svg = d3.select('#d3-container')
+                .append('svg')
+                    .attr('height', height + margin.top + margin.bottom)
+                    .attr('width', width + margin.left + margin.right )
+                    .append("g")
+                    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-            // debugger
-
-            barChart
-                .enter()
-                .append("rect")
-                .merge(barChart)
-                .on("mouseover", function(d) {
-                    tooltip
-                        .style("opactiy", 1)
-                        .style("display", "inline-block")
-                        .html(d.title + "<br/>" + d.value)
-                })
-                .on("mouseout", function() {
-                    tooltip
-                    .style("display", "none")
-                })
-                .on("mousemove", function(e, d) {
-                    tooltip
-                        .style("left", e.pageX + 10 + "px")
-                        .style("top", e.pageY + 10 + "px")
-                        .style("opacity", 1)
-                        .html(d.title + "<br/>" + d.value)
-                })
-                .transition()
-                .duration(1000)
-                .attr("x", function(d) {return x(d.playername); })
-                .attr("y", function(d) {return y(d.value); })
-                .attr("width", x.bandwidth())
-                .attr("height", function(d) {return height - y(d.value); })
-                .attr("fill", function(d) {
-                    // debugger
-                    if (d.key === 0) {
-                        return '#e41a1c'
-                    } else {
-                        return '#377eb8'
-                    }
-                })
-
-            // debugger
-
-            barChart
-                .exit()
-                .remove()
-                
+            const x = d3.scaleBand()
+                .range([0, width])
+                .padding(0.2);
+            const xAxis = svg.append("g")
+                .attr("transform", "translate(0, " + height + ")")
+            
+            const y = d3.scaleLinear()
+                .range([height, 0])
+            const yAxis = svg.append("g")
+            
+            function update(data) {
                 // debugger
-                
-        }
-    
-        update(qbGamesPlayed)
-    
-    } else if (finalPlayer1[0].position === "RB" && finalPlayer2[0].position === "RB") {
-            
-        let rbGamesPlayed = [
-            {playername: finalPlayer1[0].name, value: finalPlayer1[0].games_played, key: 0},
-            {playername: finalPlayer2[0].name, value: finalPlayer2[0].games_played, key: 1}
-        ]
+                    
+                // TRYING TO ADD TITLE DYNAMICALLY
+                // g.append("text")
+                //     .attr("transform", "translate(100, 0)")
+                //     .attr("x", 50)
+                //     .attr("y", 50)
+                //     .attr("font-size", "24px")
+                //     .text(function(d) {return d.title})
 
-        let rbRushingAttempts = [
-            {playername: finalPlayer1[0].name, value: finalPlayer1[0].rushing.attempts, key: 0},
-            {playername: finalPlayer2[0].name, value: finalPlayer2[0].rushing.attempts, key: 1},
-            {playername: `${finalPlayer1[0].name} `, value: finalPlayer1[0].rushing.redzone_attempts, key: 0},
-            {playername: `${finalPlayer2[0].name} `, value: finalPlayer2[0].rushing.redzone_attempts, key: 1}
-        ]
+                x.domain(data.map(function(d) { return d.playername; }))
+                xAxis.call(d3.axisBottom(x))
 
-        let rbRushingYards = [
-            {playername: finalPlayer1[0].name, value: finalPlayer1[0].rushing.yards, key: 0},
-            {playername: finalPlayer2[0].name, value: finalPlayer2[0].rushing.yards, key: 1},
-            {playername: `${finalPlayer1[0].name} `, value: finalPlayer1[0].rushing.yards_after_contact, key: 0},
-            {playername: `${finalPlayer2[0].name} `, value: finalPlayer2[0].rushing.yards_after_contact, key: 1}
-        ]
+                y.domain([0, d3.max(data, function(d) { return d.value }) ]);
+                yAxis.transition().duration(1000).call(d3.axisLeft(y));
 
-        let rbAvgYards = [
-            {playername: finalPlayer1[0].name, value: finalPlayer1[0].rushing.avg_yards, key: 0},
-            {playername: finalPlayer2[0].name, value: finalPlayer2[0].rushing.avg_yards, key: 1},
-        ]
+                const tooltip = d3.select('body')
+                    .append('div')
+                    .attr("class", "toolTip")
+                    .attr('style', 'position: absolute; opacity: 0;')
+                    .style("background-color", "white")
+                    .style("border", "solid")
+                    .style("border-width", "1px")
+                    .style("border-radius", "5px")
+                    .style("padding", "10px")
 
-        let rbRushingTouchDowns = [
-            {playername: finalPlayer1[0].name, value: finalPlayer1[0].rushing.touchdowns, key: 0},
-            {playername: finalPlayer2[0].name, value: finalPlayer2[0].rushing.touchdowns, key: 1},
-        ]
 
-        let rbReceivingTargets = [
-            {playername: finalPlayer1[0].name, value: finalPlayer1[0].receiving.targets, key: 0},
-            {playername: finalPlayer2[0].name, value: finalPlayer2[0].receiving.targets, key: 1},
-            {playername: `${finalPlayer1[0].name} `, value: finalPlayer1[0].receiving.redzone_targets, key: 0},
-            {playername: `${finalPlayer2[0].name} `, value: finalPlayer2[0].receiving.redzone_targets, key: 1}
-        ]
+                const barChart = svg.selectAll("rect")
+                .data(data)
 
-        let rbReceptions = [
-            {playername: finalPlayer1[0].name, value: finalPlayer1[0].receiving.receptions, key: 0},
-            {playername: finalPlayer2[0].name, value: finalPlayer2[0].receiving.receptions, key: 1},
-        ]
+                // debugger
 
-        let rbReceivingYards = [
-            {playername: finalPlayer1[0].name, value: finalPlayer1[0].receiving.yards, key: 0},
-            {playername: finalPlayer2[0].name, value: finalPlayer2[0].receiving.yards, key: 1},
-            {playername: `${finalPlayer1[0].name} `, value: finalPlayer1[0].receiving.yards_after_contact, key: 0},
-            {playername: `${finalPlayer2[0].name} `, value: finalPlayer2[0].receiving.yards_after_contact, key: 1}
-        ]
-
-        let rbReceivingTouchDowns = [
-            {playername: finalPlayer1[0].name, value: finalPlayer1[0].receiving.touchdowns, key: 0},
-            {playername: finalPlayer2[0].name, value: finalPlayer2[0].receiving.touchdowns, key: 1},
-        ]
-
-        let d1Button = document.createElement("button")
-        d1Button.onclick = () => {update(rbGamesPlayed)}
-        d1Button.textContent = "Games Played"
-
-        let d2Button = document.createElement("button")
-        d2Button.onclick = () => {update(rbRushingAttempts)}
-        d2Button.textContent = "Rushing Attempts"
-
-        let d3Button = document.createElement("button")
-        d3Button.onclick = () => {update(rbRushingYards)}
-        d3Button.textContent = "Rushing Yards"
-
-        let d4Button = document.createElement("button")
-        d4Button.onclick = () => {update(rbAvgYards)}
-        d4Button.textContent = "Avg Yards"
-        
-        let d5Button = document.createElement("button")
-        d5Button.onclick = () => {update(rbRushingTouchDowns)}
-        d5Button.textContent = "Rushing TD's"
-        
-        let d6Button = document.createElement("button")
-        d6Button.onclick = () => {update(rbReceivingTargets)}
-        d6Button.textContent = "Receiving Targets"
-
-        let d7Button = document.createElement("button")
-        d7Button.onclick = () => {update(rbReceptions)}
-        d7Button.textContent = "Receptions"
-
-        let d8Button = document.createElement("button")
-        d8Button.onclick = () => {update(rbReceivingYards)}
-        d8Button.textContent = "Receiving Yards"
-
-        let d9Button = document.createElement("button")
-        d9Button.onclick = () => {update(rbReceivingTouchDowns)}
-        d9Button.textContent = "Receiving TD's"
-
-        let graph = document.getElementsByClassName("graphcontainer")[0]
-        // debugger
-        graph.appendChild(d1Button)
-        graph.appendChild(d2Button)
-        graph.appendChild(d3Button)
-        graph.appendChild(d4Button)
-        graph.appendChild(d5Button)
-        graph.appendChild(d6Button)
-        graph.appendChild(d7Button)
-        graph.appendChild(d8Button)
-        graph.appendChild(d9Button)
-
-        const margin = { top: 50, bottom: 50, left: 50, right:50 }
-        const width = 800 - margin.left - margin.right;
-        const height = 500 - margin.top - margin.bottom;
-        
-        const svg = d3.select('#d3-container')
-            .append('svg')
-                .attr('height', height + margin.top + margin.bottom)
-                .attr('width', width + margin.left + margin.right )
-                // .append("g")
-                // .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-            
-        const g = svg.append("g")
-                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-        
-        const x = d3.scaleBand()
-            .range([0, width])
-            .padding(0.2);
-        const xAxis = g.append("g")
-            .attr("transform", "translate(0, " + height + ")")
-        
-        const y = d3.scaleLinear()
-            .range([height, 0])
-        const yAxis = g.append("g")
-            // .attr("class", "myYaxis")
-    
-                
-        function update(data) {
-    
-            x.domain(data.map(function(d) { return d.playername; }))
-            xAxis.call(d3.axisBottom(x))
-
-            y.domain([0, d3.max(data, function(d) { return d.value }) ]);
-            yAxis.transition().duration(1000).call(d3.axisLeft(y));
-    
-            const tooltip = d3.select('#d3-container')
-                .append('div')
-                .style("opacity", 0)
-                .attr("class", "toolTip")
-                .style("background-color", "white")
-                .style("border", "solid")
-                .style("border-width", "1px")
-                .style("border-radius", "5px")
-                .style("padding", "10px")
-    
-    
-            const barChart = g.selectAll("rect")
-            .data(data)
-
-            barChart
-                .enter()
-                .append("rect")
-                .merge(barChart)
-                .on("mouseover", function(d) {
-                    tooltip
-                        .style("opactiy", 1)
-                        .style("display", "inline-block")
-                        .html(d.value)
-                })
-                .on("mousemove", function(e, d) {
-                    tooltip
-                        .style("left", e.pageX + "px")
-                        .style("top", e.pageY + "px")
-                        .style("opacity", 1)
-                        .html(d.value)
-                })
-                .on("mouseout", function(d) {
-                    tooltip
+                barChart
+                    .enter()
+                    .append("rect")
+                    .merge(barChart)
+                    .on("mouseover", function(d) {
+                        tooltip
+                            .style("opactiy", 1)
+                            .style("display", "inline-block")
+                            .html(d.title + "<br/>" + d.value)
+                    })
+                    .on("mouseout", function() {
+                        tooltip
                         .style("display", "none")
-                })
-                .transition()
-                .duration(1000)
-                .attr("x", function(d) {return x(d.playername); })
-                .attr("y", function(d) {return y(d.value); })
-                .attr("width", x.bandwidth())
-                .attr("height", function(d) {return height - y(d.value); })
-                .attr("fill", function(d) {
-                    // debugger
-                    if (d.key === 0) {
-                        return '#e41a1c'
-                    } else {
-                        return '#377eb8'
-                    }
-                })
-    
+                    })
+                    .on("mousemove", function(e, d) {
+                        tooltip
+                            .style("left", e.pageX + 10 + "px")
+                            .style("top", e.pageY + 10 + "px")
+                            .style("opacity", 1)
+                            .html(d.title + "<br/>" + d.value)
+                    })
+                    .transition()
+                    .duration(1000)
+                    .attr("x", function(d) {return x(d.playername); })
+                    .attr("y", function(d) {return y(d.value); })
+                    .attr("width", x.bandwidth())
+                    .attr("height", function(d) {return height - y(d.value); })
+                    .attr("fill", function(d) {
+                        // debugger
+                        if (d.key === 0) {
+                            return '#e41a1c'
+                        } else {
+                            return '#377eb8'
+                        }
+                    })
 
-            barChart
-                .exit()
-                .remove()
-                   
+                // debugger
+
+                barChart
+                    .exit()
+                    .remove()
+                    
+                    // debugger
+                    
+            }
+        
+            update(qbGamesPlayed)
     
-        }
-    
+        } else if (finalPlayer1[0].position === "RB" && finalPlayer2[0].position === "RB") {
+            
+            let rbGamesPlayed = [
+                {playername: finalPlayer1[0].name, value: finalPlayer1[0].games_played, key: 0, title: "Games Played"},
+                {playername: finalPlayer2[0].name, value: finalPlayer2[0].games_played, key: 1, title: "Games Played"}
+            ]
+
+            let rbRushingAttempts = [
+                {playername: finalPlayer1[0].name, value: finalPlayer1[0].rushing.attempts, key: 0, title: "Rushing Attempts"},
+                {playername: finalPlayer2[0].name, value: finalPlayer2[0].rushing.attempts, key: 1, title: "Rushing Attempts"},
+                {playername: `${finalPlayer1[0].name} `, value: finalPlayer1[0].rushing.redzone_attempts, key: 0, title: "Redzone Rushing Attempts"},
+                {playername: `${finalPlayer2[0].name} `, value: finalPlayer2[0].rushing.redzone_attempts, key: 1, title: "Redzone Rushing Attempts"}
+            ]
+
+            let rbRushingYards = [
+                {playername: finalPlayer1[0].name, value: finalPlayer1[0].rushing.yards, key: 0, title: "Rushing Yards"},
+                {playername: finalPlayer2[0].name, value: finalPlayer2[0].rushing.yards, key: 1, title: "Rushing Yards"},
+                {playername: `${finalPlayer1[0].name} `, value: finalPlayer1[0].rushing.yards_after_contact, key: 0, title: "Yards After Contact"},
+                {playername: `${finalPlayer2[0].name} `, value: finalPlayer2[0].rushing.yards_after_contact, key: 1, title: "Yards After Contact"}
+            ]
+
+            let rbAvgYards = [
+                {playername: finalPlayer1[0].name, value: finalPlayer1[0].rushing.avg_yards, key: 0, title: "Average Rushing Yards"},
+                {playername: finalPlayer2[0].name, value: finalPlayer2[0].rushing.avg_yards, key: 1, title: "Average Rushing Yards"},
+            ]
+
+            let rbRushingTouchDowns = [
+                {playername: finalPlayer1[0].name, value: finalPlayer1[0].rushing.touchdowns, key: 0, title: "Rushing TD's"},
+                {playername: finalPlayer2[0].name, value: finalPlayer2[0].rushing.touchdowns, key: 1, title: "Rushing TD's"},
+            ]
+
+            let rbReceivingTargets = [
+                {playername: finalPlayer1[0].name, value: finalPlayer1[0].receiving.targets, key: 0, title: "Receiving Targets"},
+                {playername: finalPlayer2[0].name, value: finalPlayer2[0].receiving.targets, key: 1, title: "Receiving Targets"},
+                {playername: `${finalPlayer1[0].name} `, value: finalPlayer1[0].receiving.redzone_targets, key: 0, title: "Redzone Receiving Targets"},
+                {playername: `${finalPlayer2[0].name} `, value: finalPlayer2[0].receiving.redzone_targets, key: 1, title: "Redzone Receiving Targets"}
+            ]
+
+            let rbReceptions = [
+                {playername: finalPlayer1[0].name, value: finalPlayer1[0].receiving.receptions, key: 0, title: "Receptions"},
+                {playername: finalPlayer2[0].name, value: finalPlayer2[0].receiving.receptions, key: 1, title: "Receptions"},
+            ]
+
+            let rbReceivingYards = [
+                {playername: finalPlayer1[0].name, value: finalPlayer1[0].receiving.yards, key: 0, title: "Receiving Yards"},
+                {playername: finalPlayer2[0].name, value: finalPlayer2[0].receiving.yards, key: 1, title: "Receiving Yards"},
+                {playername: `${finalPlayer1[0].name} `, value: finalPlayer1[0].receiving.yards_after_contact, key: 0, title: "Receiving Yards After Contact"},
+                {playername: `${finalPlayer2[0].name} `, value: finalPlayer2[0].receiving.yards_after_contact, key: 1, title: "Receiving Yards After Contact"}
+            ]
+
+            let rbReceivingTouchDowns = [
+                {playername: finalPlayer1[0].name, value: finalPlayer1[0].receiving.touchdowns, key: 0, title: "Receiving TD's"},
+                {playername: finalPlayer2[0].name, value: finalPlayer2[0].receiving.touchdowns, key: 1, title: "Receiving TD's"},
+            ]
+
+            let d1Button = document.createElement("button")
+            d1Button.onclick = () => {update(rbGamesPlayed)}
+            d1Button.textContent = "Games Played"
+
+            let d2Button = document.createElement("button")
+            d2Button.onclick = () => {update(rbRushingAttempts)}
+            d2Button.textContent = "Rushing Attempts"
+
+            let d3Button = document.createElement("button")
+            d3Button.onclick = () => {update(rbRushingYards)}
+            d3Button.textContent = "Rushing Yards"
+
+            let d4Button = document.createElement("button")
+            d4Button.onclick = () => {update(rbAvgYards)}
+            d4Button.textContent = "Avg Yards"
+            
+            let d5Button = document.createElement("button")
+            d5Button.onclick = () => {update(rbRushingTouchDowns)}
+            d5Button.textContent = "Rushing TD's"
+            
+            let d6Button = document.createElement("button")
+            d6Button.onclick = () => {update(rbReceivingTargets)}
+            d6Button.textContent = "Receiving Targets"
+
+            let d7Button = document.createElement("button")
+            d7Button.onclick = () => {update(rbReceptions)}
+            d7Button.textContent = "Receptions"
+
+            let d8Button = document.createElement("button")
+            d8Button.onclick = () => {update(rbReceivingYards)}
+            d8Button.textContent = "Receiving Yards"
+
+            let d9Button = document.createElement("button")
+            d9Button.onclick = () => {update(rbReceivingTouchDowns)}
+            d9Button.textContent = "Receiving TD's"
+
+            let graph = document.getElementsByClassName("graphcontainer")[0]
+            // debugger
+            graph.appendChild(d1Button)
+            graph.appendChild(d2Button)
+            graph.appendChild(d3Button)
+            graph.appendChild(d4Button)
+            graph.appendChild(d5Button)
+            graph.appendChild(d6Button)
+            graph.appendChild(d7Button)
+            graph.appendChild(d8Button)
+            graph.appendChild(d9Button)
+
+            const margin = { top: 50, bottom: 50, left: 50, right:50 }
+            const width = 800 - margin.left - margin.right;
+            const height = 500 - margin.top - margin.bottom;
+            
+            const svg = d3.select('#d3-container')
+                .append('svg')
+                    .attr('height', height + margin.top + margin.bottom)
+                    .attr('width', width + margin.left + margin.right )
+                    .append("g")
+                    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+            const x = d3.scaleBand()
+                .range([0, width])
+                .padding(0.2);
+            const xAxis = svg.append("g")
+                .attr("transform", "translate(0, " + height + ")")
+            
+            const y = d3.scaleLinear()
+                .range([height, 0])
+            const yAxis = svg.append("g")
+        
+                    
+            function update(data) {
+        
+                x.domain(data.map(function(d) { return d.playername; }))
+                xAxis.call(d3.axisBottom(x))
+
+                y.domain([0, d3.max(data, function(d) { return d.value }) ]);
+                yAxis.transition().duration(1000).call(d3.axisLeft(y));
+        
+                const tooltip = d3.select('#d3-container')
+                    .append('div')
+                    .style("opacity", 0)
+                    .attr("class", "toolTip")
+                    .style("background-color", "white")
+                    .style("border", "solid")
+                    .style("border-width", "1px")
+                    .style("border-radius", "5px")
+                    .style("padding", "10px")
+        
+        
+                const barChart = svg.selectAll("rect")
+                    .data(data)
+
+                barChart
+                    .enter()
+                    .append("rect")
+                    .merge(barChart)
+                    .on("mouseover", function(d) {
+                        tooltip
+                            .style("opactiy", 1)
+                            .style("display", "inline-block")
+                            .html(d.title + "<br/>" + d.value)
+                    })
+                    .on("mouseout", function() {
+                        tooltip
+                        .style("display", "none")
+                    })
+                    .on("mousemove", function(e, d) {
+                        tooltip
+                            .style("left", e.pageX + 10 + "px")
+                            .style("top", e.pageY + 10 + "px")
+                            .style("opacity", 1)
+                            .html(d.title + "<br/>" + d.value)
+                    })
+                    .transition()
+                    .duration(1000)
+                    .attr("x", function(d) {return x(d.playername); })
+                    .attr("y", function(d) {return y(d.value); })
+                    .attr("width", x.bandwidth())
+                    .attr("height", function(d) {return height - y(d.value); })
+                    .attr("fill", function(d) {
+                        // debugger
+                        if (d.key === 0) {
+                            return '#e41a1c'
+                        } else {
+                            return '#377eb8'
+                        }
+                    })
+
+                barChart
+                    .exit()
+                    .remove() 
+            }
+        
             update(rbGamesPlayed)
+
+        } else if (finalPlayer1[0].position === "WR" && finalPlayer2[0].position === "WR") {
+
+            let wrGamesPlayed = [
+                {playername: finalPlayer1[0].name, value: finalPlayer1[0].games_played, key: 0, title: "Games Played"},
+                {playername: finalPlayer2[0].name, value: finalPlayer2[0].games_played, key: 1, title: "Games Played"}
+            ]
+
+            let wrTargets = [
+                {playername: finalPlayer1[0].name, value: finalPlayer1[0].receiving.targets, key: 0, title: "Receiving Targets"},
+                {playername: finalPlayer2[0].name, value: finalPlayer2[0].receiving.targets, key: 1, title: "Receiving Targets"},
+                {playername: `${finalPlayer1[0].name} `, value: finalPlayer1[0].receiving.redzone_targets, key: 0, title: "Redzone Receiving Targets"},
+                {playername: `${finalPlayer2[0].name} `, value: finalPlayer2[0].receiving.redzone_targets, key: 1, title: "Redzone Receiving Targets"},
+                {playername: `${finalPlayer1[0].name}  `, value: finalPlayer1[0].receiving.receptions, key: 0, title: "Receptions"},
+                {playername: `${finalPlayer2[0].name}  `, value: finalPlayer2[0].receiving.receptions, key: 1, title: "Receptions"},
+            ]
+
+            let wrReceivingYards = [
+                {playername: finalPlayer1[0].name, value: finalPlayer1[0].receiving.yards, key: 0, title: "Receiving Yards"},
+                {playername: finalPlayer2[0].name, value: finalPlayer2[0].receiving.yards, key: 1, title: "Receiving Yards"},
+                {playername: `${finalPlayer1[0].name} `, value: finalPlayer1[0].receiving.yards_after_catch, key: 0, title: "Yards After Catch"},
+                {playername: `${finalPlayer2[0].name} `, value: finalPlayer2[0].receiving.yards_after_catch, key: 1, title: "Yards After Catch"},
+                {playername: `${finalPlayer1[0].name}  `, value: finalPlayer1[0].receiving.yards_after_contact, key: 0, title: "Yards After Contact"},
+                {playername: `${finalPlayer2[0].name}  `, value: finalPlayer2[0].receiving.yards_after_contact, key: 1, title: "Yards After Contact"}
+            ]
+
+            let wrAvgYards = [
+                {playername: finalPlayer1[0].name, value: finalPlayer1[0].receiving.avg_yards, key: 0, title: "Average Receiving Yards"},
+                {playername: finalPlayer2[0].name, value: finalPlayer2[0].receiving.avg_yards, key: 1, title: "Average Receiving Yards"},
+            ]
+
+            let wrReceivingTouchDowns = [
+                {playername: finalPlayer1[0].name, value: finalPlayer1[0].receiving.touchdowns, key: 0, title: "Receiving TD's"},
+                {playername: finalPlayer2[0].name, value: finalPlayer2[0].receiving.touchdowns, key: 1, title: "Receiving TD's"},
+            ]
+
+            let d1Button = document.createElement("button")
+            d1Button.onclick = () => {update(wrGamesPlayed)}
+            d1Button.textContent = "Games Played"
+
+            let d2Button = document.createElement("button")
+            d2Button.onclick = () => {update(wrTargets)}
+            d2Button.textContent = "Targets & Receptions"
+
+            let d3Button = document.createElement("button")
+            d3Button.onclick = () => {update(wrReceivingYards)}
+            d3Button.textContent = "Receiving Yards"
+
+            let d4Button = document.createElement("button")
+            d4Button.onclick = () => {update(wrAvgYards)}
+            d4Button.textContent = "Avg Yards"
+            
+            let d5Button = document.createElement("button")
+            d5Button.onclick = () => {update(wrReceivingTouchDowns)}
+            d5Button.textContent = "Receiving TD's"
+
+            let graph = document.getElementsByClassName("graphcontainer")[0]
+            // debugger
+            graph.appendChild(d1Button)
+            graph.appendChild(d2Button)
+            graph.appendChild(d3Button)
+            graph.appendChild(d4Button)
+            graph.appendChild(d5Button)
+
+            const margin = { top: 50, bottom: 50, left: 50, right:50 }
+            const width = 800 - margin.left - margin.right;
+            const height = 500 - margin.top - margin.bottom;
+            
+            const svg = d3.select('#d3-container')
+                .append('svg')
+                    .attr('height', height + margin.top + margin.bottom)
+                    .attr('width', width + margin.left + margin.right )
+                    .append("g")
+                    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+            const x = d3.scaleBand()
+                .range([0, width])
+                .padding(0.2);
+            const xAxis = svg.append("g")
+                .attr("transform", "translate(0, " + height + ")")
+            
+            const y = d3.scaleLinear()
+                .range([height, 0])
+            const yAxis = svg.append("g")
+        
+                    
+            function update(data) {
+        
+                x.domain(data.map(function(d) { return d.playername; }))
+                xAxis.call(d3.axisBottom(x))
+
+                y.domain([0, d3.max(data, function(d) { return d.value }) ]);
+                yAxis.transition().duration(1000).call(d3.axisLeft(y));
+        
+                const tooltip = d3.select('#d3-container')
+                    .append('div')
+                    .style("opacity", 0)
+                    .attr("class", "toolTip")
+                    .style("background-color", "white")
+                    .style("border", "solid")
+                    .style("border-width", "1px")
+                    .style("border-radius", "5px")
+                    .style("padding", "10px")
+        
+        
+                const barChart = svg.selectAll("rect")
+                    .data(data)
+
+                barChart
+                    .enter()
+                    .append("rect")
+                    .merge(barChart)
+                    .on("mouseover", function(d) {
+                        tooltip
+                            .style("opactiy", 1)
+                            .style("display", "inline-block")
+                            .html(d.title + "<br/>" + d.value)
+                    })
+                    .on("mouseout", function() {
+                        tooltip
+                        .style("display", "none")
+                    })
+                    .on("mousemove", function(e, d) {
+                        tooltip
+                            .style("left", e.pageX + 10 + "px")
+                            .style("top", e.pageY + 10 + "px")
+                            .style("opacity", 1)
+                            .html(d.title + "<br/>" + d.value)
+                    })
+                    .transition()
+                    .duration(1000)
+                    .attr("x", function(d) {return x(d.playername); })
+                    .attr("y", function(d) {return y(d.value); })
+                    .attr("width", x.bandwidth())
+                    .attr("height", function(d) {return height - y(d.value); })
+                    .attr("fill", function(d) {
+                        // debugger
+                        if (d.key === 0) {
+                            return '#e41a1c'
+                        } else {
+                            return '#377eb8'
+                        }
+                    })
+
+                barChart
+                    .exit()
+                    .remove() 
+            }
+
+            update(wrGamesPlayed)
+
+        } else if (finalPlayer1[0].position === "TE" && finalPlayer2[0].position === "TE") {
+
+            let teGamesPlayed = [
+                {playername: finalPlayer1[0].name, value: finalPlayer1[0].games_played, key: 0, title: "Games Played"},
+                {playername: finalPlayer2[0].name, value: finalPlayer2[0].games_played, key: 1, title: "Games Played"}
+            ]
+
+            let teTargets = [
+                {playername: finalPlayer1[0].name, value: finalPlayer1[0].receiving.targets, key: 0, title: "Receiving Targets"},
+                {playername: finalPlayer2[0].name, value: finalPlayer2[0].receiving.targets, key: 1, title: "Receiving Targets"},
+                {playername: `${finalPlayer1[0].name} `, value: finalPlayer1[0].receiving.redzone_targets, key: 0, title: "Redzone Receiving Targets"},
+                {playername: `${finalPlayer2[0].name} `, value: finalPlayer2[0].receiving.redzone_targets, key: 1, title: "Redzone Receiving Targets"},
+                {playername: `${finalPlayer1[0].name}  `, value: finalPlayer1[0].receiving.receptions, key: 0, title: "Receptions"},
+                {playername: `${finalPlayer2[0].name}  `, value: finalPlayer2[0].receiving.receptions, key: 1, title: "Receptions"},
+            ]
+
+            let teReceivingYards = [
+                {playername: finalPlayer1[0].name, value: finalPlayer1[0].receiving.yards, key: 0, title: "Receiving Yards"},
+                {playername: finalPlayer2[0].name, value: finalPlayer2[0].receiving.yards, key: 1, title: "Receiving Yards"},
+                {playername: `${finalPlayer1[0].name} `, value: finalPlayer1[0].receiving.yards_after_catch, key: 0, title: "Yards After Catch"},
+                {playername: `${finalPlayer2[0].name} `, value: finalPlayer2[0].receiving.yards_after_catch, key: 1, title: "Yards After Catch"},
+                {playername: `${finalPlayer1[0].name}  `, value: finalPlayer1[0].receiving.yards_after_contact, key: 0, title: "Yards After Contact"},
+                {playername: `${finalPlayer2[0].name}  `, value: finalPlayer2[0].receiving.yards_after_contact, key: 1, title: "Yards After Contact"}
+            ]
+
+            let teAvgYards = [
+                {playername: finalPlayer1[0].name, value: finalPlayer1[0].receiving.avg_yards, key: 0, title: "Average Receiving Yards"},
+                {playername: finalPlayer2[0].name, value: finalPlayer2[0].receiving.avg_yards, key: 1, title: "Average Receiving Yards"},
+            ]
+
+            let teReceivingTouchDowns = [
+                {playername: finalPlayer1[0].name, value: finalPlayer1[0].receiving.touchdowns, key: 0, title: "Receiving TD's"},
+                {playername: finalPlayer2[0].name, value: finalPlayer2[0].receiving.touchdowns, key: 1, title: "Receiving TD's"},
+            ]
+
+            let d1Button = document.createElement("button")
+            d1Button.onclick = () => {update(teGamesPlayed)}
+            d1Button.textContent = "Games Played"
+
+            let d2Button = document.createElement("button")
+            d2Button.onclick = () => {update(teTargets)}
+            d2Button.textContent = "Targets & Receptions"
+
+            let d3Button = document.createElement("button")
+            d3Button.onclick = () => {update(teReceivingYards)}
+            d3Button.textContent = "Receiving Yards"
+
+            let d4Button = document.createElement("button")
+            d4Button.onclick = () => {update(teAvgYards)}
+            d4Button.textContent = "Avg Yards"
+            
+            let d5Button = document.createElement("button")
+            d5Button.onclick = () => {update(teReceivingTouchDowns)}
+            d5Button.textContent = "Receiving TD's"
+
+            let graph = document.getElementsByClassName("graphcontainer")[0]
+            // debugger
+            graph.appendChild(d1Button)
+            graph.appendChild(d2Button)
+            graph.appendChild(d3Button)
+            graph.appendChild(d4Button)
+            graph.appendChild(d5Button)
+
+            const margin = { top: 50, bottom: 50, left: 50, right:50 }
+            const width = 800 - margin.left - margin.right;
+            const height = 500 - margin.top - margin.bottom;
+            
+            const svg = d3.select('#d3-container')
+                .append('svg')
+                    .attr('height', height + margin.top + margin.bottom)
+                    .attr('width', width + margin.left + margin.right )
+                    .append("g")
+                    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+            const x = d3.scaleBand()
+                .range([0, width])
+                .padding(0.2);
+            const xAxis = svg.append("g")
+                .attr("transform", "translate(0, " + height + ")")
+            
+            const y = d3.scaleLinear()
+                .range([height, 0])
+            const yAxis = svg.append("g")
+        
+                    
+            function update(data) {
+        
+                x.domain(data.map(function(d) { return d.playername; }))
+                xAxis.call(d3.axisBottom(x))
+
+                y.domain([0, d3.max(data, function(d) { return d.value }) ]);
+                yAxis.transition().duration(1000).call(d3.axisLeft(y));
+        
+                const tooltip = d3.select('#d3-container')
+                    .append('div')
+                    .style("opacity", 0)
+                    .attr("class", "toolTip")
+                    .style("background-color", "white")
+                    .style("border", "solid")
+                    .style("border-width", "1px")
+                    .style("border-radius", "5px")
+                    .style("padding", "10px")
+        
+        
+                const barChart = svg.selectAll("rect")
+                    .data(data)
+
+                barChart
+                    .enter()
+                    .append("rect")
+                    .merge(barChart)
+                    .on("mouseover", function(d) {
+                        tooltip
+                            .style("opactiy", 1)
+                            .style("display", "inline-block")
+                            .html(d.title + "<br/>" + d.value)
+                    })
+                    .on("mouseout", function() {
+                        tooltip
+                        .style("display", "none")
+                    })
+                    .on("mousemove", function(e, d) {
+                        tooltip
+                            .style("left", e.pageX + 10 + "px")
+                            .style("top", e.pageY + 10 + "px")
+                            .style("opacity", 1)
+                            .html(d.title + "<br/>" + d.value)
+                    })
+                    .transition()
+                    .duration(1000)
+                    .attr("x", function(d) {return x(d.playername); })
+                    .attr("y", function(d) {return y(d.value); })
+                    .attr("width", x.bandwidth())
+                    .attr("height", function(d) {return height - y(d.value); })
+                    .attr("fill", function(d) {
+                        // debugger
+                        if (d.key === 0) {
+                            return '#e41a1c'
+                        } else {
+                            return '#377eb8'
+                        }
+                    })
+
+                barChart
+                    .exit()
+                    .remove() 
+            }
+
+            update(teGamesPlayed)
         }
+
         buttonFlag = false
         resetButtonFlag = true
-        debugger
+        // debugger
     }
 })
 
@@ -620,9 +911,7 @@ resetbutton.addEventListener("click",(e) => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-
     // const baseURL = 'http://api.sportradar.us/nfl/official/trial/v6/en/seasons/2020/REG/teams'
-    
 })
 
 
