@@ -175,7 +175,9 @@ player2.addEventListener("change", (e) => {
 let buttonFlag = true
 let resetButtonFlag = true
 const button = document.getElementById('compare-btn');
+button.classList.add("button")
 const resetbutton = document.getElementById('reset-btn');
+resetbutton.classList.add("resetButton")
     // debugger
 button.addEventListener("click",(e) => {
     
@@ -185,8 +187,10 @@ button.addEventListener("click",(e) => {
     window.finalPlayer2 = finalPlayer2
     //********************TESTINGEND******* */
     if (buttonFlag === true) {
-        
+
         if (finalPlayer1[0].position === "QB" && finalPlayer2[0].position === "QB") {
+
+            d3.select("svg").remove();
             
             let qbGamesPlayed = [
                 {playername: finalPlayer1[0].name, value: finalPlayer1[0].games_played, key: 0, title: "Games Played"},
@@ -388,6 +392,8 @@ button.addEventListener("click",(e) => {
             update(qbGamesPlayed)
     
         } else if (finalPlayer1[0].position === "RB" && finalPlayer2[0].position === "RB") {
+
+            d3.select("svg").remove();
             
             let rbGamesPlayed = [
                 {playername: finalPlayer1[0].name, value: finalPlayer1[0].games_played, key: 0, title: "Games Played"},
@@ -579,6 +585,8 @@ button.addEventListener("click",(e) => {
 
         } else if (finalPlayer1[0].position === "WR" && finalPlayer2[0].position === "WR") {
 
+            d3.select("svg").remove();
+
             let wrGamesPlayed = [
                 {playername: finalPlayer1[0].name, value: finalPlayer1[0].games_played, key: 0, title: "Games Played"},
                 {playername: finalPlayer2[0].name, value: finalPlayer2[0].games_played, key: 1, title: "Games Played"}
@@ -728,6 +736,8 @@ button.addEventListener("click",(e) => {
             update(wrGamesPlayed)
 
         } else if (finalPlayer1[0].position === "TE" && finalPlayer2[0].position === "TE") {
+
+            d3.select("svg").remove();
 
             let teGamesPlayed = [
                 {playername: finalPlayer1[0].name, value: finalPlayer1[0].games_played, key: 0, title: "Games Played"},
@@ -879,9 +889,12 @@ button.addEventListener("click",(e) => {
         }
 
         buttonFlag = false
+        button.classList.remove("button")
         resetButtonFlag = true
+        resetbutton.classList.add("resetButton")
         // debugger
-    }
+    } 
+
 })
 
 resetbutton.addEventListener("click",(e) => {
@@ -905,9 +918,27 @@ resetbutton.addEventListener("click",(e) => {
         d3.selectAll('svg').remove();
     }
     resetButtonFlag = false
+    resetbutton.classList.remove("resetButton")
     buttonFlag = true
+    button.classList.add("button")
 })
 
+const margin = { top: 50, bottom: 50, left: 50, right:50 }
+const width = 800 - margin.left - margin.right;
+const height = 500 - margin.top - margin.bottom;
+            
+const svg = d3.select('#d3-container')
+    .append('svg')
+        .attr("class", "introGraph")
+        .attr('height', height + margin.top + margin.bottom)
+        .attr('width', width + margin.left + margin.right )
+        
+svg.append("text")
+    .attr("class", "introGraphText")
+    .attr("x", (width / 2) + 60)
+    .attr("y", (height / 2) + 50)
+    .attr("text-anchor", "middle")
+    .text("Please Choose Players")
 
 
 document.addEventListener('DOMContentLoaded', () => {

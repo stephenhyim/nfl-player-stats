@@ -42,7 +42,7 @@ body {
         flex-direction: column;
         justify-content: space-around;
         width: 250px;
-        height: 150px;
+        height: 175px;
     }
 }
 
@@ -84,3 +84,30 @@ body {
     margin: 3px;
 }
 
+#compare-btn {
+    font-weight: bold;
+}
+
+#reset-btn {
+    font-weight: bold;
+}
+
+.button {
+    background-color: #1e90ff;
+    border-radius: 4px;
+}
+
+.resetButton {
+    background-color: #1e90ff;
+    border-radius: 4px;
+}
+
+.introGraph {
+    background-color: blue;
+}
+
+.introGraphText {
+    font-family: 'Patua One', cursive;
+    color: white;
+    font-size: 40px;
+}
