@@ -172,18 +172,22 @@ player2.addEventListener("change", (e) => {
 })
 
 
-
-
+let buttonFlag = true
+let resetButtonFlag = true
 const button = document.getElementById('compare-btn');
+const resetbutton = document.getElementById('reset-btn');
+    // debugger
 button.addEventListener("click",(e) => {
-    debugger
+    
+    // debugger
     //********************TESTINGSTART******* */
     window.finalPlayer1 = finalPlayer1
     window.finalPlayer2 = finalPlayer2
     //********************TESTINGEND******* */
-    
+    if (buttonFlag === true) {
+        
     if (finalPlayer1[0].position === "QB" && finalPlayer2[0].position === "QB") {
-      
+          
         let qbGamesPlayed = [
             {playername: finalPlayer1[0].name, value: finalPlayer1[0].games_played, key: 0, title: "Games Played"},
             {playername: finalPlayer2[0].name, value: finalPlayer2[0].games_played, key: 1, title: "Games Played"}
@@ -191,45 +195,45 @@ button.addEventListener("click",(e) => {
         
         
         let qbAttempts = [
-            {playername: finalPlayer1[0].name, value: finalPlayer1[0].passing.attempts, key: 0, title: "Passing Attempts & Completions"},
-            {playername: finalPlayer2[0].name, value: finalPlayer2[0].passing.attempts, key: 1, title: "Passing Attempts & Completions"},
-            {playername: `${finalPlayer1[0].name} `, value: finalPlayer1[0].passing.completions, key: 0, title: "Passing Attempts & Completions"},
-            {playername: `${finalPlayer2[0].name} `, value: finalPlayer2[0].passing.completions, key: 1, title: "Passing Attempts & Completions"}
+            {playername: finalPlayer1[0].name, value: finalPlayer1[0].passing.attempts, key: 0, title: "Passing Attempts"},
+            {playername: finalPlayer2[0].name, value: finalPlayer2[0].passing.attempts, key: 1, title: "Passing Attempts"},
+            {playername: `${finalPlayer1[0].name} `, value: finalPlayer1[0].passing.completions, key: 0, title: "Passing Completions"},
+            {playername: `${finalPlayer2[0].name} `, value: finalPlayer2[0].passing.completions, key: 1, title: "Passing Completions"}
         ]
         
         let qbCompletion = [
-            {playername: finalPlayer1[0].name, value: finalPlayer1[0].passing.cmp_pct, key: 0, title: "TITLE"},
-            {playername: finalPlayer2[0].name, value: finalPlayer2[0].passing.cmp_pct, key: 1, title: "TITLE"}
+            {playername: finalPlayer1[0].name, value: finalPlayer1[0].passing.cmp_pct, key: 0, title: "Completion %"},
+            {playername: finalPlayer2[0].name, value: finalPlayer2[0].passing.cmp_pct, key: 1, title: "Completion %"}
         ]
 
         let qbPassingYards = [
-            {playername: finalPlayer1[0].name, value: finalPlayer1[0].passing.yards, key: 0, title: "TITLE"},
-            {playername: finalPlayer2[0].name, value: finalPlayer2[0].passing.yards, key: 1, title: "TITLE"}
+            {playername: finalPlayer1[0].name, value: finalPlayer1[0].passing.yards, key: 0, title: "Passing Yards"},
+            {playername: finalPlayer2[0].name, value: finalPlayer2[0].passing.yards, key: 1, title: "Passing Yards"}
         ]
 
         let qbPassingTD = [
-            {playername: finalPlayer1[0].name, value: finalPlayer1[0].passing.touchdowns, key: 0, title: "TITLE"},
-            {playername: finalPlayer2[0].name, value: finalPlayer2[0].passing.touchdowns, key: 1, title: "TITLE"},
+            {playername: finalPlayer1[0].name, value: finalPlayer1[0].passing.touchdowns, key: 0, title: "Passing TD's"},
+            {playername: finalPlayer2[0].name, value: finalPlayer2[0].passing.touchdowns, key: 1, title: "Passing TD's"},
         ]
 
         let qbInterceptions = [
-            {playername: finalPlayer1[0].name, value: finalPlayer1[0].passing.interceptions, key: 0, title: "TITLE"},
-            {playername: finalPlayer2[0].name, value: finalPlayer2[0].passing.interceptions, key: 1, title: "TITLE"}
+            {playername: finalPlayer1[0].name, value: finalPlayer1[0].passing.interceptions, key: 0, title: "Interceptions"},
+            {playername: finalPlayer2[0].name, value: finalPlayer2[0].passing.interceptions, key: 1, title: "Interceptions"}
         ]
 
         let qbRushingAttempts = [
-            {playername: finalPlayer1[0].name, value: finalPlayer1[0].rushing.attempts, key: 0, title: "TITLE"},
-            {playername: finalPlayer2[0].name, value: finalPlayer2[0].rushing.attempts, key: 1, title: "TITLE"}
+            {playername: finalPlayer1[0].name, value: finalPlayer1[0].rushing.attempts, key: 0, title: "Rushing Attempts"},
+            {playername: finalPlayer2[0].name, value: finalPlayer2[0].rushing.attempts, key: 1, title: "Rushing Attempts"}
         ]
 
         let qbRushingYards = [
-            {playername: finalPlayer1[0].name, value: finalPlayer1[0].rushing.yards, key: 0, title: "TITLE"},
-            {playername: finalPlayer2[0].name, value: finalPlayer2[0].rushing.yards, key: 1, title: "TITLE"},
+            {playername: finalPlayer1[0].name, value: finalPlayer1[0].rushing.yards, key: 0, title: "Rushing Yards"},
+            {playername: finalPlayer2[0].name, value: finalPlayer2[0].rushing.yards, key: 1, title: "Rushing Yards"},
         ]
 
         let qbRushingTD = [
-            {playername: finalPlayer1[0].name, value: finalPlayer1[0].rushing.touchdowns, key: 0, title: "TITLE"},
-            {playername: finalPlayer2[0].name, value: finalPlayer2[0].rushing.touchdowns, key: 1, title: "TITLE"}
+            {playername: finalPlayer1[0].name, value: finalPlayer1[0].rushing.touchdowns, key: 0, title: "Rushing TD's"},
+            {playername: finalPlayer2[0].name, value: finalPlayer2[0].rushing.touchdowns, key: 1, title: "Rushing TD's"}
         ]
 
         
@@ -293,9 +297,6 @@ button.addEventListener("click",(e) => {
                 .append("g")
                 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-            
-        // const g = svg.append("g")
-        //         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
         
         const x = d3.scaleBand()
             .range([0, width])
@@ -308,7 +309,7 @@ button.addEventListener("click",(e) => {
         const yAxis = svg.append("g")
         
         function update(data) {
-            debugger
+            // debugger
                 
             // TRYING TO ADD TITLE DYNAMICALLY
             // g.append("text")
@@ -338,7 +339,7 @@ button.addEventListener("click",(e) => {
             const barChart = svg.selectAll("rect")
             .data(data)
 
-            debugger
+            // debugger
 
             barChart
                 .enter()
@@ -348,7 +349,7 @@ button.addEventListener("click",(e) => {
                     tooltip
                         .style("opactiy", 1)
                         .style("display", "inline-block")
-                        .html(d.value)
+                        .html(d.title + "<br/>" + d.value)
                 })
                 .on("mouseout", function() {
                     tooltip
@@ -359,7 +360,7 @@ button.addEventListener("click",(e) => {
                         .style("left", e.pageX + 10 + "px")
                         .style("top", e.pageY + 10 + "px")
                         .style("opacity", 1)
-                        .html(d.value)
+                        .html(d.title + "<br/>" + d.value)
                 })
                 .transition()
                 .duration(1000)
@@ -376,19 +377,20 @@ button.addEventListener("click",(e) => {
                     }
                 })
 
-            debugger
+            // debugger
 
             barChart
                 .exit()
                 .remove()
-               
-                debugger
+                
+                // debugger
+                
         }
-
+    
         update(qbGamesPlayed)
-
+    
     } else if (finalPlayer1[0].position === "RB" && finalPlayer2[0].position === "RB") {
-        
+            
         let rbGamesPlayed = [
             {playername: finalPlayer1[0].name, value: finalPlayer1[0].games_played, key: 0},
             {playername: finalPlayer2[0].name, value: finalPlayer2[0].games_played, key: 1}
@@ -515,27 +517,16 @@ button.addEventListener("click",(e) => {
             .range([height, 0])
         const yAxis = g.append("g")
             // .attr("class", "myYaxis")
-
-            
-        function update(data) {
+    
                 
-            // TRYING TO ADD TITLE DYNAMICALLY
-            // g.append("text")
-            //     .attr("transform", "translate(100, 0)")
-            //     .attr("x", 50)
-            //     .attr("y", 50)
-            //     .attr("font-size", "24px")
-            //     .text(function(d) {return d.title})
-
-            
-
-
+        function update(data) {
+    
             x.domain(data.map(function(d) { return d.playername; }))
             xAxis.call(d3.axisBottom(x))
 
             y.domain([0, d3.max(data, function(d) { return d.value }) ]);
             yAxis.transition().duration(1000).call(d3.axisLeft(y));
-
+    
             const tooltip = d3.select('#d3-container')
                 .append('div')
                 .style("opacity", 0)
@@ -545,8 +536,8 @@ button.addEventListener("click",(e) => {
                 .style("border-width", "1px")
                 .style("border-radius", "5px")
                 .style("padding", "10px")
-
-
+    
+    
             const barChart = g.selectAll("rect")
             .data(data)
 
@@ -585,43 +576,47 @@ button.addEventListener("click",(e) => {
                         return '#377eb8'
                     }
                 })
-
+    
 
             barChart
                 .exit()
                 .remove()
-               
-
+                   
+    
         }
-
-        update(rbGamesPlayed)
+    
+            update(rbGamesPlayed)
+        }
+        buttonFlag = false
+        resetButtonFlag = true
+        debugger
     }
 })
 
-function removeAllChildNodes(parent) {
-    while (parent.firstChild) {
-        parent.removeChild(parent.firstChild);
-    }
-}
-
-const resetbutton = document.getElementById('reset-btn');
 resetbutton.addEventListener("click",(e) => {
-    document.getElementById('position-dropdown').selectedIndex=0;
-    document.getElementById('team1-dropdown').selectedIndex=0;
-    const player1dropdown = document.getElementById('player1-dropdown')
-    while (player1dropdown.childNodes.length > 2) {
-        // debugger
-        player1dropdown.removeChild(player1dropdown.lastChild);
+    if (resetButtonFlag === true) {
+        document.getElementById('position-dropdown').selectedIndex=0;
+        document.getElementById('team1-dropdown').selectedIndex=0;
+        const player1dropdown = document.getElementById('player1-dropdown')
+        while (player1dropdown.childNodes.length > 2) {
+            // debugger
+            player1dropdown.removeChild(player1dropdown.lastChild);
+        }
+        document.getElementById('team2-dropdown').selectedIndex=0;
+        const player2dropdown = document.getElementById('player2-dropdown')
+        while (player2dropdown.childNodes.length > 2) {
+            player2dropdown.removeChild(player2dropdown.lastChild);
+        }
+        const graph = document.getElementsByClassName("graphcontainer")[0]
+        while (graph.childNodes.length > 2) {
+            graph.removeChild(graph.lastChild)
+        }
+        d3.selectAll('svg').remove();
     }
-    document.getElementById('team2-dropdown').selectedIndex=0;
-    const player2dropdown = document.getElementById('player2-dropdown')
-    while (player2dropdown.childNodes.length > 2) {
-        player2dropdown.removeChild(player2dropdown.lastChild);
-    }
-    const graph = document.getElementsByClassName("graphcontainer")[0]
-    removeAllChildNodes(graph)
-    d3.selectAll('svg').remove();
+    resetButtonFlag = false
+    buttonFlag = true
 })
+
 
 
 document.addEventListener('DOMContentLoaded', () => {
