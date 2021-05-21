@@ -961,7 +961,7 @@ const svg = d3.select('#d3-container')
         
 svg.append("text")
     .attr("class", "introGraphText")
-    .attr("x", (width / 2) + 60)
+    .attr("x", (width / 2) + 50)
     .attr("y", (height / 2) + 190)
     .attr("text-anchor", "middle")
     .text("Please Choose Players, Select Compare, Then Reset")

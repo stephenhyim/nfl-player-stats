@@ -137,4 +137,31 @@ body {
     bottom: 0;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.fa-book.reader {
+    font-size: 15px;
+}
+
+.portfolio {
+    display: flex;
+}
+
+.github {
+    display: flex;
+}
+
+.linkedin {
+    display: flex;
+}
+
+a p {
+    margin-left: 5px;
+}
+
+
+
 
