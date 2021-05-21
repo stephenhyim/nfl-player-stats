@@ -1,10 +1,10 @@
 
 ### Background and Overview
-Fantasy Football Comparison will compare two football players based on their position with their fantasy football related statistics. 
+NFL Player Stats will compare two football players based on their position with their football related statistics. 
 
 ### Functionality & MVP
-In Fantasy Football Comparison, users will be able to: <br>
-  -Type two players in a search bar <br>
+In NFL Player Stats, users will be able to: <br>
+  -Select players from a dropdown <br>
   -See their statistics in a side-by-side view (Bar Chart)
  
 In addition, this project will provide: <br> 
