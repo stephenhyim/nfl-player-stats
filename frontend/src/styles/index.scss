@@ -3,18 +3,19 @@ body {
     flex-direction: column;
     background-image: url("../images/football_field.jpg");
     font-family: 'Patua One', cursive;
-
+    
+    
 }
 
 
 .title {
-    background-color: red;
-    color: white;
-    text-align: center;
-    height: 50px;
-    vertical-align: middle;
-    font-size: 40px;
-    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: yellow;
+    height: 40px;
+    font-size: 35px;
+    padding: 5px;
     font-family: 'Patua One', cursive;
 }
 
@@ -24,8 +25,20 @@ body {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    padding-top: 125px;
+    padding: 20px;
+   
     
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    padding-bottom: 50px;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    width: 100%;
 }
 
 .search-container {
@@ -109,5 +122,19 @@ body {
 .introGraphText {
     font-family: 'Patua One', cursive;
     color: white;
-    font-size: 40px;
+    font-size: 32px;
 }
+
+.footer {
+    font-family: 'Patua One', cursive;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: yellow;
+    height: 30px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+
+

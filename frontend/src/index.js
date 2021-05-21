@@ -916,11 +916,37 @@ resetbutton.addEventListener("click",(e) => {
             graph.removeChild(graph.lastChild)
         }
         d3.selectAll('svg').remove();
-    }
-    resetButtonFlag = false
-    resetbutton.classList.remove("resetButton")
-    buttonFlag = true
-    button.classList.add("button")
+
+        const margin = { top: 50, bottom: 50, left: 50, right:50 }
+        const width = 800 - margin.left - margin.right;
+        const height = 500 - margin.top - margin.bottom;
+                    
+        const svg = d3.select('#d3-container')
+            .append('svg')
+                .attr("class", "introGraph")
+                .attr('height', height + margin.top + margin.bottom)
+                .attr('width', width + margin.left + margin.right )
+                
+        svg.append("text")
+            .attr("class", "introGraphText")
+            .attr("x", (width / 2) + 60)
+            .attr("y", (height / 2) + 100)
+            .attr("text-anchor", "middle")
+            .text("Please Choose Players, Select Compare, Then Reset")
+
+        svg.append("image")
+            .attr('xlink:href', 'https://1000logos.net/wp-content/uploads/2017/05/NFL-logo-500x338.png')
+            .attr("width", 200)
+            .attr("height", 200)
+            .attr("x", 300)
+            .attr("y", 100)
+
+        }
+
+        resetButtonFlag = false
+        resetbutton.classList.remove("resetButton")
+        buttonFlag = true
+        button.classList.add("button")
 })
 
 const margin = { top: 50, bottom: 50, left: 50, right:50 }
@@ -936,9 +962,16 @@ const svg = d3.select('#d3-container')
 svg.append("text")
     .attr("class", "introGraphText")
     .attr("x", (width / 2) + 60)
-    .attr("y", (height / 2) + 50)
+    .attr("y", (height / 2) + 190)
     .attr("text-anchor", "middle")
-    .text("Please Choose Players")
+    .text("Please Choose Players, Select Compare, Then Reset")
+
+svg.append("image")
+    .attr('xlink:href', 'https://1000logos.net/wp-content/uploads/2017/05/NFL-logo-500x338.png')
+    .attr("width", 400)
+    .attr("height", 400)
+    .attr("x", 200)
+    .attr("y", 20)
 
 
 document.addEventListener('DOMContentLoaded', () => {

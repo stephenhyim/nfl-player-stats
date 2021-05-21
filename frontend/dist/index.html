@@ -19,35 +19,42 @@
 <body>
     <h1 class="title">NFL Player Stats</h1>
     <div class="main">
-        <div class="search-container">
-            <div class="search-box">
-                <select id="position-dropdown">
-                    <option value="" selected disabled hidden>Pick a position</option>
-                    <option value="QB">Quaterback</option>
-                    <option value="RB">Running Back</option>
-                    <option value="WR">Wide Receiver</option>
-                    <option value="TE">Tight End</option>
-                </select>
-                <select id="team1-dropdown">
-                    <option value="" selected disabled hidden>Player1's Team</option>
-                </select>
-                <select id="player1-dropdown">
-                    <option value="" selected hidden>Player 1</option>
-                </select>
-                <select id="team2-dropdown">
-                    <option value="" selected disabled hidden>Player2's Team</option>
-                </select>
-                <select id="player2-dropdown">
-                    <option value="" selected hidden>Player 2</option>
-                </select>
-                <button id='compare-btn'>COMPARE</button>
-                <button id = "reset-btn">RESET</button>
+        <div class = "wrapper">
+            <div class="search-container">
+                <div class="search-box">
+                    <select id="position-dropdown">
+                        <option value="" selected disabled hidden>Pick a position</option>
+                        <option value="QB">Quaterback</option>
+                        <option value="RB">Running Back</option>
+                        <option value="WR">Wide Receiver</option>
+                        <option value="TE">Tight End</option>
+                    </select>
+                    <select id="team1-dropdown">
+                        <option value="" selected disabled hidden>Player1's Team</option>
+                    </select>
+                    <select id="player1-dropdown">
+                        <option value="" selected hidden>Player 1</option>
+                    </select>
+                    <select id="team2-dropdown">
+                        <option value="" selected disabled hidden>Player2's Team</option>
+                    </select>
+                    <select id="player2-dropdown">
+                        <option value="" selected hidden>Player 2</option>
+                    </select>
+                    <button id='compare-btn'>COMPARE</button>
+                    <button id = "reset-btn">RESET</button>
+                </div>
             </div>
-        </div>
-        <div class="graphcontainer">
-            <div id="d3-container"></div>
+            <div class="graphcontainer">
+                <div id="d3-container"></div>
+            </div>
         </div>
     </div>
     <script src="./dist/main.js"></script>
-  </body>
+</body>
+<footer class = "footer">
+    <p>Stephen's Portfolio</p>
+    <p>GitHub</p>
+    <p>LinkedIn</p>
+</footer>
 </html>
