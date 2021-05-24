@@ -7,7 +7,7 @@ let selectedPosition = ""
 const positiondropdown = document.getElementById("position-dropdown")
     positiondropdown.addEventListener("change", (e) => {
         selectedPosition = e.currentTarget.value
-        console.log(selectedPosition)
+        // console.log(selectedPosition)
     })
 
 const team1_id = {
@@ -58,17 +58,17 @@ let team1player1results = [];
 const player1 = document.getElementById("player1-dropdown")
 team1dropdown.addEventListener('change', (e) => {
     selectedTeam1 = e.target.value;
-    console.log(selectedTeam1)
+    // console.log(selectedTeam1)
     
     axios.get(`/teams/${selectedTeam1}`)
     .then((response) => {
          selectedTeam1Players = response.data.players
-         console.log(selectedTeam1Players)
+        //  console.log(selectedTeam1Players)
 
          team1player1results = selectedTeam1Players.filter(player => {
             return player.position === selectedPosition
          })
-         console.log(team1player1results)
+        //  console.log(team1player1results)
 
         team1player1results.forEach(player => {
             player1.appendChild(new Option(`${player.name}`, `${player.name}`))
@@ -88,7 +88,7 @@ player1.addEventListener("change", (e) => {
     finalPlayer1 = team1player1results.filter(player => {
         return player.name === player1name
     })
-    console.log(finalPlayer1)
+    // console.log(finalPlayer1)
 })
 
 const team2_id = {
@@ -137,14 +137,14 @@ let team2player2results = [];
 const player2 = document.getElementById("player2-dropdown")
 team2dropdown.addEventListener('change', (e) => {
     selectedTeam2 = e.target.value;
-    console.log(selectedTeam2)
+    // console.log(selectedTeam2)
     
      axios.get(`/teams/${selectedTeam2}`)
      .then((response) => {
         //  debugger
         //  console.log(response.data);
          selectedTeam2Players = response.data.players
-         console.log(selectedTeam2Players)
+        //  console.log(selectedTeam2Players)
 
          team2player2results = selectedTeam2Players.filter(player => {
              return player.position === selectedPosition
@@ -168,7 +168,7 @@ player2.addEventListener("change", (e) => {
     finalPlayer2 = team2player2results.filter(player => {
         return player.name === player2name
     })
-    console.log(finalPlayer2)
+    // console.log(finalPlayer2)
 })
 
 
