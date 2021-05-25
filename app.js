@@ -18,7 +18,7 @@ app.get('/teams/:selectedTeam1', (request, res) => {
   .then((response) => {
     // debugger
     console.log(response)
-    console.log(process.env.NODE_ENV)
+    console.log(secret)
     return response.text();
   }).then((body) => {
     // debugger
