@@ -19,6 +19,7 @@ app.get('/teams/:selectedTeam1', (request, res) => {
     // debugger
     console.log(response)
     console.log(secret)
+    console.log(keys)
     return response.text();
   }).then((body) => {
     // debugger
