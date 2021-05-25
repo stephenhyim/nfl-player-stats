@@ -17,9 +17,6 @@ app.get('/teams/:selectedTeam1', (request, res) => {
   fetch(`http://api.sportradar.us/nfl/official/trial/v6/en/seasons/2020/REG/teams/${request.params.selectedTeam1}/statistics.json?api_key=${secret.apiKey}`)
   .then((response) => {
     // debugger
-    console.log(response)
-    console.log(secret)
-    console.log(keys)
     return response.text();
   }).then((body) => {
     // debugger
