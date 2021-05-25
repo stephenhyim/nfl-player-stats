@@ -932,7 +932,7 @@ resetbutton.addEventListener("click",(e) => {
             .attr("x", (width / 2) + 60)
             .attr("y", (height / 2) + 100)
             .attr("text-anchor", "middle")
-            .text("Please Choose Players, Select Compare, Then Reset")
+            .text("Select Position, Choose Players, Then Compare And Reset")
 
         svg.append("image")
             .attr('xlink:href', 'https://1000logos.net/wp-content/uploads/2017/05/NFL-logo-500x338.png')
@@ -964,7 +964,7 @@ svg.append("text")
     .attr("x", (width / 2) + 50)
     .attr("y", (height / 2) + 190)
     .attr("text-anchor", "middle")
-    .text("Please Choose Players, Select Compare, Then Reset")
+    .text("Select Position, Choose Players, Then Compare And Reset")
 
 svg.append("image")
     .attr('xlink:href', 'https://1000logos.net/wp-content/uploads/2017/05/NFL-logo-500x338.png')
