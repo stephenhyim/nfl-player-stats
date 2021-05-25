@@ -28,7 +28,8 @@
     "node-fetch": "^1.7.3",
     "node-sass": "^4.7.2",
     "sass-loader": "^6.0.7",
-    "webpack": "^3.4.1"
+    "webpack": "^3.4.1",
+    "webpack-merge": "^4.2.2"
   },
   "devDependencies": {
     "nodemon": "^1.11.0"
