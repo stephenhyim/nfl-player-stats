@@ -8,7 +8,7 @@ In NFL Player Stats, users will be able to: <br>
   -Select players from a dropdown <br>
   -See their statistics in a side-by-side view (Bar Chart)
  
-In addition, this project will provide: <br> 
+In addition, this project will allow: <br> 
   -Users to make more educated guesses on who to draft for their fantasy football teams
   
 ### Interaction
