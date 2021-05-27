@@ -28,7 +28,7 @@ In addition, this project will provide: <br>
   -Day 4 - Render graphs on the page <br>
   -Day 5 - Style
   
-### Bonus Features
+### Future Features
   -Add a third player to compare<br>
   -Add a year feature to show data from previous years other than last season
 
