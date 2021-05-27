@@ -1,6 +1,6 @@
 
 ### Background and Overview
-NFL Player Stats will compare two football players based on their position with their football related statistics. 
+NFL Player Stats is an application that allows users to compare football player's statistics based on position. Users can filter through different stats to search for example, touchdowns, yards, attempts, completions, and more.   
 
 ### Functionality & MVP
 In NFL Player Stats, users will be able to: <br>
@@ -8,10 +8,10 @@ In NFL Player Stats, users will be able to: <br>
   -See their statistics in a side-by-side view (Bar Chart)
  
 In addition, this project will provide: <br> 
-  -Users to make more educated guesses on who to start or sit for their fantasy lineup
+  -Users to make more educated guesses on who to draft for their fantasy football teams
   
-### Wireframes & File Structure
-[https://wireframe.cc/ei6aMD]
+### Interaction
+https://user-images.githubusercontent.com/66839642/119844198-3a942c00-bed6-11eb-9676-b7141d189571.mp4
 
 
 ### Arichitecture and Technology
