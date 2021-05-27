@@ -22,8 +22,8 @@ In addition, this project will provide: <br>
   -Express, Axios, Webpack<br>
   
 ### Implementation Timeline
-  -Day 1 - Set up the framework and skeleton for the page <br>
-  -Day 2 - Set up the API and logic for each node <br>
+  -Day 1 - Set up the framework and skeleton <br>
+  -Day 2 - Set up the API and node logic <br>
   -Day 3 - Learn D3 to show the different graphs per selected query <br>
   -Day 4 - Render graphs on the page <br>
   -Day 5 - Style
