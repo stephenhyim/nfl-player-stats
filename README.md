@@ -1,4 +1,5 @@
 
+
 ### Background and Overview
 NFL Player Stats is an application that allows users to compare football player's statistics based on position. Users can filter through different stats to search for example, touchdowns, yards, attempts, completions, and more.   
 
@@ -7,11 +8,11 @@ In NFL Player Stats, users will be able to: <br>
   -Select players from a dropdown <br>
   -See their statistics in a side-by-side view (Bar Chart)
  
-In addition, this project will provide: <br> 
+In addition, this project will allow: <br> 
   -Users to make more educated guesses on who to draft for their fantasy football teams
   
 ### Interaction
-https://user-images.githubusercontent.com/66839642/119844198-3a942c00-bed6-11eb-9676-b7141d189571.mp4
+![nfl-player-stats](https://user-images.githubusercontent.com/66839642/119850455-90b79e00-bedb-11eb-9bf4-23b63d874433.gif)
 
 
 ### Arichitecture and Technology
@@ -21,13 +22,13 @@ https://user-images.githubusercontent.com/66839642/119844198-3a942c00-bed6-11eb-
   -Express, Axios, Webpack<br>
   
 ### Implementation Timeline
-  -Day 1 - Set up the framework and skeleton for the page <br>
-  -Day 2 - Set up the API and logic for each node <br>
+  -Day 1 - Set up framework and skeleton <br>
+  -Day 2 - Set up API and node logic <br>
   -Day 3 - Learn D3 to show the different graphs per selected query <br>
   -Day 4 - Render graphs on the page <br>
   -Day 5 - Style
   
-### Bonus Features
+### Future Features
   -Add a third player to compare<br>
   -Add a year feature to show data from previous years other than last season
 
