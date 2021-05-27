@@ -10,8 +10,8 @@ In NFL Player Stats, users will be able to: <br>
 In addition, this project will provide: <br> 
   -Users to make more educated guesses on who to draft for their fantasy football teams
   
-### Wireframes & File Structure
-[https://wireframe.cc/ei6aMD]
+### Interaction
+https://user-images.githubusercontent.com/66839642/119844198-3a942c00-bed6-11eb-9676-b7141d189571.mp4
 
 
 ### Arichitecture and Technology
