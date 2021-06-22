@@ -58,24 +58,20 @@ let team1player1results = [];
 const player1 = document.getElementById("player1-dropdown")
 team1dropdown.addEventListener('change', (e) => {
     selectedTeam1 = e.target.value;
-    // console.log(selectedTeam1)
     
     axios.get(`/teams/${selectedTeam1}`)
     .then((response) => {
-         selectedTeam1Players = response.data.players
-        //  console.log(selectedTeam1Players)
+        selectedTeam1Players = response.data.players
 
-         team1player1results = selectedTeam1Players.filter(player => {
+        team1player1results = selectedTeam1Players.filter(player => {
             return player.position === selectedPosition
-         })
-        //  console.log(team1player1results)
+        })
 
         team1player1results.forEach(player => {
             player1.appendChild(new Option(`${player.name}`, `${player.name}`))
         })
     })
     .catch(function (error) {
-        // debugger
         console.log(error);
     })
 })
