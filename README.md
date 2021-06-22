@@ -5,7 +5,7 @@ NFL Player Stats is an application that allows users to compare football player'
 
 ### Functionality & MVP
 In NFL Player Stats, users will be able to: <br>
-  -Allow user to select players from dropdown after filtering by team and position <br>
+  -Allow user to select players from dropdown after filtering by team and position with DOM manipulation <br>
   ![image](https://user-images.githubusercontent.com/66839642/122980525-bdd65f80-d366-11eb-9acd-5f9027bb63e9.png) <br>
   -View selected players' statistics in a side-by-side view (Bar Chart)
  
