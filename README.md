@@ -1,4 +1,4 @@
-
+**[Live Site](https://nfl-player-stats.herokuapp.com/)**
 
 ### Background and Overview
 NFL Player Stats is an application that allows users to compare football player's statistics based on position. Users can filter through different stats to search for example, touchdowns, yards, attempts, completions, and more.   
