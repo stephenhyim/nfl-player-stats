@@ -5,8 +5,9 @@ NFL Player Stats is an application that allows users to compare football player'
 
 ### Functionality & MVP
 In NFL Player Stats, users will be able to: <br>
-  -Select players from a dropdown <br>
-  -See their statistics in a side-by-side view (Bar Chart)
+  -Allow user to select players from dropdown after filtering by team and position <br>
+  ![image](https://user-images.githubusercontent.com/66839642/122980525-bdd65f80-d366-11eb-9acd-5f9027bb63e9.png) <br>
+  -View selected players' statistics in a side-by-side view (Bar Chart)
  
 In addition, this project will allow: <br> 
   -Users to make more educated guesses on who to draft for their fantasy football teams
@@ -20,13 +21,6 @@ In addition, this project will allow: <br>
   -D3 <br>
   -Sportradar NFL v6 API <br>
   -Express, Axios, Webpack<br>
-  
-### Implementation Timeline
-  -Day 1 - Set up framework and skeleton <br>
-  -Day 2 - Set up API and node logic <br>
-  -Day 3 - Learn D3 to show the different graphs per selected query <br>
-  -Day 4 - Render graphs on the page <br>
-  -Day 5 - Style
   
 ### Future Features
   -Add a third player to compare<br>
